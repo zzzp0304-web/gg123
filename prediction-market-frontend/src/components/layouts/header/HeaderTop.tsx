@@ -13,6 +13,8 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { useWallet, useAnchorWallet } from "@solana/wallet-adapter-react";
 import { useConnection } from "@solana/wallet-adapter-react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/elements/LanguageSwitcher";
 
 interface HeaderTopProps {
   isCollapsed?: boolean;
@@ -22,6 +24,7 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
   const { activeTab, setActiveTab } = useGlobalContext(); // Use Global Context
   const wallet = useWallet();
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col relative">
@@ -33,12 +36,6 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
           <div className="flex-1 md:hidden flex justify-start items-center gap-2">
             <Link href="/">
               <Icon name="Logo" size={24} />
-            </Link>
-            <Link
-              href="/"
-              className="text-xl leading-9 font-normal font-['anton'] text-white uppercase"
-            >
-              speculape
             </Link>
           </div>
         </div>
@@ -65,7 +62,7 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
                   className={`text-base font-medium font-satoshi leading-normal transition-all duration-300 ease-in-out
           ${activeTab === "ACTIVE" ? "text-white" : "text-[#838587]"}`}
                 >
-                  Active Market
+                  {t('market.activeMarkets')}
                 </span>
               </button>
 
@@ -87,7 +84,7 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
                   className={`text-base font-medium font-satoshi leading-normal transition-all duration-300 ease-in-out
           ${activeTab === "PENDING" ? "text-white" : "text-[#838587]"}`}
                 >
-                  Pending Market
+                  {t('market.pendingMarkets')}
                 </span>
               </button>
             </div>
@@ -102,7 +99,7 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
             </span>
             <input
               type="text"
-              placeholder="Search"
+              placeholder={t('common.search')}
               className="flex-1 bg-transparent hover:text-gray-400 text-[#838587] text-base font-medium font-satoshi leading-normal outline-none"
             />
             <div className="px-2 py-1 bg-[#111111] rounded-lg outline-1 outline-offset-[-1px] outline-[#313131] flex justify-center items-center gap-2.5">
@@ -116,37 +113,12 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
         {/* Language Selector & Wallet Button */}
         <div className="flex justify-start items-center gap-5">
           {/* Language Selector */}
-          <div
-            className="px-4 py-2.5 bg-[#282828] rounded-2xl xl:flex hidden justify-center items-center gap-2 
-    transition-all duration-300 ease-in-out hover:bg-[#3a3a3a] hover:shadow-md cursor-pointer"
-          >
-            <span className="text-white text-lg font-medium font-satoshi leading-7 transition-all duration-300 ease-in-out hover:text-[#07b3ff]">
-              EN
-            </span>
-            <Icon
-              name="Down"
-              className="transition-all duration-300 ease-in-out hover:rotate-180"
-            />
+          <div className="xl:flex hidden">
+            <LanguageSwitcher />
           </div>
 
           {/* Connect Wallet Button */}
-          {/* <button
-            onClick={
-              () => {
-                if (wallet.connected) {
-                  wallet.disconnect();
-                } else {
-                  wallet.connect();
-                }
-              }
-            }
-            className="md:px-4 px-3 md:py-2.5 py-1 bg-[#07b3ff] rounded-2xl flex items-center gap-2 transition-all cursor-pointer duration-300 ease-in-out hover:bg-[#0595d3] hover:scale-105 hover:shadow-lg"
-          >
-            <span className="text-black md:text-lg text-sm font-medium font-satoshi leading-7 transition-all duration-300 ease-in-out">
-              Connect Wallet
-            </span>
-          </button> */}
-          <WalletMultiButton style={{ borderRadius: "15px", backgroundColor: "#07B3FF", color: "#000", boxShadow: "inset 0px 2px 0px 0px rgba(255,255,255,0.16)" }} ></WalletMultiButton>
+          <WalletMultiButton style={{ borderRadius: "15px", backgroundColor: "#F3BA2F", color: "#000", boxShadow: "inset 0px 2px 0px 0px rgba(255,255,255,0.16)" }} ></WalletMultiButton>
         </div>
       </div>
       <div className="px-[50px]">
@@ -157,7 +129,7 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
           </span>
           <input
             type="text"
-            placeholder="Search"
+            placeholder={t('common.search')}
             className="flex-1 bg-transparent text-[#838587] md:text-base text-sm font-medium font-satoshi leading-normal outline-none"
           />
           <div className="px-2 py-1 bg-[#111111] rounded-lg outline-1 outline-offset-[-1px] outline-[#313131] flex justify-center items-center gap-2.5">

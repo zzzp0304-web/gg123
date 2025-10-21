@@ -115,7 +115,7 @@ const proposals = [
   },
   {
     image: "https://placehold.co/32x32",
-    title: "Will Solana flip Ethereum in market cap?",
+    title: "Will BNB flip Ethereum in market cap?",
     status: "Pending",
     timeLeft: "10d 8h",
     betAmount: 5,

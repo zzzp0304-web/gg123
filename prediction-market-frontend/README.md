@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 预见市场 (Yujian Markets)
 
-## Getting Started
+基于 BNB 区块链的预测交易平台，让您预测未来。
 
-First, run the development server:
+## 项目介绍
+
+预见市场是一个去中心化的预测市场平台，利用 BNB 区块链的高性能特性，为用户提供快速、低成本的预测交易体验。
+
+## 技术栈
+
+- **前端**: Next.js 15, React 19, TypeScript
+- **区块链**: BNB, Anchor Framework
+- **钱包**: Phantom Wallet
+- **样式**: Tailwind CSS
+- **国际化**: react-i18next
+- **动画**: Framer Motion
+
+## 开始使用
+
+首先，运行开发服务器：
 
 ```bash
 npm run dev
-# or
+# 或者
 yarn dev
-# or
+# 或者
 pnpm dev
-# or
+# 或者
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看结果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 功能特性
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🌐 **多语言支持**: 中文/英文切换
+- 💰 **BNB 集成**: 原生区块链支付
+- 🎯 **预测市场**: 创建和参与各种预测
+- 🔒 **钱包连接**: 安全的钱包集成
+- 📱 **响应式设计**: 适配各种设备
+- ⚡ **高性能**: 基于 BNB 的快速交易
 
-## Learn More
+## 部署
 
-To learn more about Next.js, take a look at the following resources:
+最简单的部署方式是使用 [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+查看 [Next.js 部署文档](https://nextjs.org/docs/app/building-your-application/deploying) 了解更多详情。

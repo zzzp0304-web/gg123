@@ -141,7 +141,7 @@ export const pendingPredictions: PendingData[] = [
   },
   {
     category: "Crypto",
-    question: "Will Solana flip Ethereum in market cap?",
+    question: "Will BNB flip Ethereum in market cap?",
     volume: "$30,500",
     timeLeft: "Pending",
     comments: 62,

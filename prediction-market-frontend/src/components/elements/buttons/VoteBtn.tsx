@@ -2,6 +2,7 @@
 
 import React from "react";
 import Icon from "../Icons";
+import { useTranslation } from "react-i18next";
 
 interface VoteButtonProps {
   onClick: () => void;
@@ -16,22 +17,31 @@ const VoteButton: React.FC<VoteButtonProps> = ({
   color,
   icon,
 }) => {
+  const isYes = icon === "yes";
+  const buttonColor = isYes ? "#10B981" : "#EF4444";
+  const { t } = useTranslation();
+  
   return (
     <button
-      className={`flex-1 px-4 py-2.5 bg-[${color}]/10 rounded-2xl cursor-pointer hover:bg-[${color}]/20 outline-1 outline-offset-[-1px] outline-[${color}] shadow-[inset_0px_2px_0px_0px_rgba(255,255,255,0.16)]
-                 flex justify-center items-center gap-2`}
+      className={`flex-1 px-6 py-4 rounded-xl cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg group
+                 ${isYes 
+                   ? 'bg-gradient-to-r from-[#10B981]/20 to-[#10B981]/10 border border-[#10B981]/30 hover:from-[#10B981]/30 hover:to-[#10B981]/20' 
+                   : 'bg-gradient-to-r from-[#EF4444]/20 to-[#EF4444]/10 border border-[#EF4444]/30 hover:from-[#EF4444]/30 hover:to-[#EF4444]/20'
+                 }`}
       onClick={onClick}
     >
       {/* Icon Container */}
-      <div className="w-5 h-5 relative overflow-hidden">
-        <Icon name={icon} color={color} />
+      <div className="w-6 h-6 relative overflow-hidden mb-2">
+        <Icon name={icon} color={buttonColor} />
       </div>
 
       {/* Button Label */}
       <div
-        className={`justify-start text-[${color}] lg:text-lg text-base font-bold font-satoshi leading-7`}
+        className={`justify-center text-center text-lg font-bold font-satoshi leading-7 transition-colors duration-300
+                   ${isYes ? 'text-[#10B981] group-hover:text-[#0D9268]' : 'text-[#EF4444] group-hover:text-[#DC2626]'}
+                 `}
       >
-        {label}
+        {isYes ? t('common.yes') : t('common.no')}
       </div>
     </button>
   );

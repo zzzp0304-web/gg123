@@ -6,47 +6,100 @@ import { FC } from "react";
 const SidebarNavItem: FC<SidebarNavItemProps> = ({
   label,
   href,
+  icon,
+  count,
+  image,
   isActive,
-  onClick,
   isCollapsed,
+  isTopic = false,
 }) => {
+  if (isTopic) {
+    return (
+      <Link
+        href={href}
+        className={`self-stretch transition-all duration-300 ease-in-out 
+          ${isCollapsed ? "p-2 md:justify-center md:flex" : "px-2 py-2.5 gap-3 justify-start items-center"}
+          hover:bg-[#2A2A2A] hover:rounded-lg
+          inline-flex items-center gap-3 cursor-pointer group`}
+      >
+        {/* Topic Image - Always visible */}
+        <div className={`${isCollapsed ? "w-8 h-8" : "w-14 h-14"} rounded-lg overflow-hidden flex-shrink-0 transition-all duration-300`}>
+          {image ? (
+            <img
+              src={image}
+              alt={label}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-[#F3BA2F]/20 to-[#F3BA2F]/10 flex items-center justify-center">
+              <Icon
+                name={icon}
+                size={isCollapsed ? 16 : 22}
+                color="#F3BA2F"
+                className="transition-all duration-300 ease-in-out group-hover:scale-110"
+              />
+            </div>
+          )}
+        </div>
+
+        {/* Topic Content - Hidden when collapsed on desktop */}
+        {!isCollapsed && (
+          <div className="flex flex-col gap-0.5 flex-1">
+            <div className="text-white text-base font-medium font-satoshi leading-tight">
+              {label}
+            </div>
+            <div className="text-[#9CA3AF] text-sm font-normal font-satoshi leading-tight">
+              {count}
+            </div>
+          </div>
+        )}
+        
+        {/* Mobile label - always visible on mobile */}
+        <div className="md:hidden flex flex-col gap-0.5 flex-1">
+          <div className="text-white text-base font-medium font-satoshi leading-tight">
+            {label}
+          </div>
+          <div className="text-[#9CA3AF] text-sm font-normal font-satoshi leading-tight">
+            {count}
+          </div>
+        </div>
+      </Link>
+    );
+  }
+
   return (
     <Link
       href={href}
-      onClick={onClick}
       className={`self-stretch transition-all duration-300 ease-in-out 
-        ${
-          isCollapsed
-            ? "p-[14px] md:justify-center"
-            : "px-5 py-3 gap-3 justify-start items-center"
-        } 
+        ${isCollapsed ? "p-2.5 md:justify-center" : "px-3 py-3 gap-3 justify-start items-center"}
         ${
           isActive
-            ? "bg-gradient-to-r from-blue/10 to-white/0 rounded-xl outline-blue outline-1 outline-offset-[-1px]"
-            : "hover:bg-[#2a2a2a] hover:rounded-xl"
+            ? "bg-[#282828] rounded-lg border-l-2 border-[#F3BA2F]"
+            : "hover:bg-[#2A2A2A] hover:rounded-lg"
         }
-        inline-flex items-center gap-3 cursor-pointer z-1`}
+        inline-flex items-center gap-3 cursor-pointer group`}
     >
       <Icon
-        name={label}
-        size={24}
-        color={isActive ? "#07b3ff" : "#838587"}
-        className="transition-all duration-300 ease-in-out hover:scale-110"
+        name={icon}
+        size={22}
+        color={isActive ? "#F3BA2F" : "#9CA3AF"}
+        className="transition-all duration-300 ease-in-out group-hover:scale-110"
       />
 
       {/* Hide label when collapsed */}
       {!isCollapsed && (
         <div
-          className={`justify-start font-satoshi text-xl font-medium leading-7 transition-all duration-300 ease-in-out
-          ${isActive ? "text-blue" : "text-gray"}`}
+          className={`justify-start font-satoshi text-base font-medium leading-tight transition-all duration-300 ease-in-out
+          ${isActive ? "text-[#F3BA2F]" : "text-white group-hover:text-[#F3BA2F]"}`}
         >
           {label}
         </div>
       )}
 
+      {/* Mobile label */}
       <div
-        className={`justify-start md:hidden font-satoshi text-xl font-medium leading-7 transition-all  duration-300 ease-in-out
-          ${isActive ? "text-blue" : "text-gray"}`}
+        className={`justify-start md:hidden font-satoshi text-base font-medium leading-tight transition-all duration-300 ease-in-out
+          ${isActive ? "text-[#F3BA2F]" : "text-white"}`}
       >
         {label}
       </div>

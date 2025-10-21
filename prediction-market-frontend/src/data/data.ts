@@ -95,7 +95,7 @@ export const marketField = [
           // },
           {
             name: "feedName",
-            placeholder: "solana"
+            placeholder: "bnb"
           }
         ],
         task: (index: number, rang: number) => "null",

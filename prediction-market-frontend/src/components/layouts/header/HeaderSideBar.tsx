@@ -3,10 +3,12 @@
 import Icon from "@/components/elements/Icons";
 import Link from "next/link";
 import SidebarNav from "../partials/SidebarNav";
-import { FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import LanguageSwitcher from "@/components/elements/LanguageSwitcher";
 import { useEffect, useState } from "react";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { RxCross2 } from "react-icons/rx";
+import { useTranslation } from "react-i18next";
 
 interface HeaderSideBarProps {
   isCollapsed: boolean;
@@ -17,10 +19,11 @@ interface HeaderSideBarProps {
 
 const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }: HeaderSideBarProps) => {
   const { width } = useWindowSize();
+  const { t } = useTranslation();
 
   return (
     <div
-      className={`hidden md:flex fixed top-0 left-0 h-screen z-30 ${isCollapsed ? "w-[104px]" : "w-[280px]"} bg-[#1E1E1E] flex-col transition-all duration-300`}
+      className={`hidden md:flex fixed top-0 left-0 h-screen z-30 ${isCollapsed ? "w-[104px]" : "w-[280px]"} bg-[#0A0A0A] border-r border-[#374151] flex-col transition-all duration-300`}
     >
       {/* Logo */}
       <div
@@ -31,14 +34,6 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
           <Link href="/">
             <Icon name="Logo" size={48} />
           </Link>
-          {!isCollapsed && (
-            <Link
-              href="/"
-              className="text-4xl leading-9 font-normal font-['anton'] text-white uppercase"
-            >
-              speculape
-            </Link>
-          )}
         </div>
       </div>
 
@@ -53,81 +48,119 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
           <Link href="/">
             <Icon name="Logo" size={24} />
           </Link>
-          <Link
-            href="/"
-            className="text-xl leading-9 font-normal font-['anton'] text-white uppercase"
-          >
-            speculape
-          </Link>
         </div>
-        <div className="px-3 py-1.5 bg-[#282828] rounded-xl shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)] flex justify-start items-center gap-1">
-          <div className="justify-start text-white text-sm font-medium font-satoshi leading-normal">
-            EN
-          </div>
-          <Icon
-            name="Down"
-            className="transition-all duration-300 ease-in-out hover:rotate-180"
-          />
-        </div>
+        <LanguageSwitcher />
       </div>
 
       {/* Sidebar Navigation */}
       <SidebarNav isCollapsed={isCollapsed} />
 
-      {/* Social Links */}
-
-      <div
-        className={` self-stretch p-6  flex-col ${isCollapsed
-          ? "flex justify-center items-center"
-          : " justify-start items-start inline-flex"
-          } flex-none gap-6  bottom-0`}
-      >
-        {!isCollapsed && (
-          <div className="self-stretch justify-start px-3">
-            <span className="text-white text-xl font-medium font-satoshi leading-loose">
-              Follow us
-            </span>
-            <span className="text-[#838587] text-xl font-medium font-satoshi leading-loose">
-              {" "}
-              on <br />
-              social media
-            </span>
-          </div>
-        )}
-        <div
-          className={`flex flex-col ${isCollapsed
-            ? "md:justify-center md:items-center"
-            : "justify-start items-start"
-            } gap-2`}
+      {/* Deposit Now Section */}
+      <div className={`self-stretch px-6 ${isCollapsed ? "pt-1 pb-3" : "pt-1 pb-3"} flex-none`}>
+        <Link
+          href="/deposit"
+          className={`w-full bg-gradient-to-br from-[#F3BA2F] to-[#E8A202] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] ${
+            isCollapsed ? "flex flex-col items-center justify-center gap-1.5 py-4 px-4" : "flex flex-col items-center justify-center gap-1.5 py-4 px-5"
+          }`}
         >
-          <Link
-            href="#"
-            className="p-3 bg-[#282828] rounded-2xl shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)] inline-flex justify-start items-center gap-2"
-          >
-            <FaInstagram className="text-white" />
-            {!isCollapsed && (
-              <div className="justify-start text-white text-base font-medium font-satoshi leading-normal">
-                Instagram
+          {/* BNB Logo */}
+          <div className={`${isCollapsed ? "w-14 h-14" : "w-16 h-16"} flex-shrink-0 transition-all duration-300 bg-[#1A1A1A] rounded-2xl p-3 flex items-center justify-center mx-auto`}>
+            <img
+              src="/assets/bnb.png"
+              alt="BNB"
+              className="w-full h-full object-contain"
+            />
+          </div>
+          
+          {/* Text Content */}
+          {!isCollapsed && (
+            <div className="flex flex-col gap-0.5 items-center text-center w-full">
+              <div className="text-white text-lg font-bold font-satoshi leading-tight">
+                {t('deposit.title')}
               </div>
-            )}
-            <div className="md:hidden justify-start text-white text-base font-medium font-satoshi leading-normal">
-              Instagram
+              <div className="text-white/90 text-xs font-medium font-satoshi leading-tight">
+                {t('deposit.subtitle')}
+              </div>
             </div>
-          </Link>
-          <Link
-            href="#"
-            className="p-3 bg-[#282828] rounded-2xl shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)] inline-flex justify-start items-center gap-2"
-          >
-            <FaXTwitter className="text-white" />
-            {!isCollapsed && (
-              <div className="justify-start text-white text-base font-medium font-satoshi leading-normal">
-                X (twitter)
-              </div>
-            )}
-            <div className="md:hidden justify-start text-white text-base font-medium font-satoshi leading-normal">
+          )}
+          
+          {/* Mobile Text */}
+          <div className="md:hidden flex flex-col gap-0.5 items-center text-center w-full">
+            <div className="text-white text-lg font-bold font-satoshi leading-tight">
+              {t('deposit.title')}
+            </div>
+            <div className="text-white/90 text-xs font-medium font-satoshi leading-tight">
+              {t('deposit.subtitle')}
+            </div>
+          </div>
+        </Link>
+      </div>
+
+      {/* Social Links */}
+      <div
+        className={`self-stretch px-6 pt-2 pb-3 flex-col flex justify-center items-center flex-none gap-2`}
+      >
+        <Link
+          href="#"
+          className="p-3 bg-[#282828] rounded-2xl shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)] inline-flex justify-center items-center gap-2"
+        >
+          <FaXTwitter className="text-white" />
+          {!isCollapsed && (
+            <div className="justify-start text-white text-base font-medium font-satoshi leading-normal">
               X (twitter)
             </div>
+          )}
+          <div className="md:hidden justify-start text-white text-base font-medium font-satoshi leading-normal">
+            X (twitter)
+          </div>
+        </Link>
+      </div>
+
+      {/* Footer Section */}
+      {!isCollapsed && (
+        <div className="self-stretch px-6 pb-5 flex-col justify-start items-start gap-2 flex-none border-t border-[#374151] pt-3">
+          {/* Links */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <Link href="/partner" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+              Partner with us
+            </Link>
+            <span className="text-[#9CA3AF] text-[10px]">•</span>
+            <Link href="/terms" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+              Terms of Use
+            </Link>
+            <span className="text-[#9CA3AF] text-[10px]">•</span>
+            <Link href="/privacy" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+              Privacy Policy
+            </Link>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-[#6B7280] text-[10px] font-normal font-satoshi text-center w-full">
+            © 2025 All rights reserved
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Footer - Always visible on mobile */}
+      <div className="md:hidden self-stretch px-6 pb-5 flex-col justify-start items-start gap-2 flex-none border-t border-[#374151] pt-3">
+        {/* Links */}
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <Link href="/partner" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+            Partner with us
           </Link>
+          <span className="text-[#9CA3AF] text-[10px]">•</span>
+          <Link href="/terms" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+            Terms of Use
+          </Link>
+          <span className="text-[#9CA3AF] text-[10px]">•</span>
+          <Link href="/privacy" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+            Privacy Policy
+          </Link>
+        </div>
+
+        {/* Copyright */}
+        <div className="text-[#6B7280] text-[10px] font-normal font-satoshi text-center w-full">
+          © 2025 All rights reserved
         </div>
       </div>
 

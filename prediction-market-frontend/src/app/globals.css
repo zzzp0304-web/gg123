@@ -1,32 +1,75 @@
 @import "tailwindcss";
 @import "./fonts.css";
 
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  --primary: #F3BA2F;
+  --secondary: #1A1A1A;
+  --accent: #2A2A2A;
+  --muted: #6B7280;
+  --border: #374151;
+  --card: #1F2937;
+  --card-hover: #374151;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
 }
 
 @theme {
   --font-display: "satoshi", "rubik", "interSemi" "sans-serif";
   --color-*: initial;
   --color-white: #fff;
-  --color-purple: #3F3CBB;
-  --color-midnight: #121063;
-  --color-tahiti: #3AB7BF;
-  --color-bermuda: #78DCCA;
-  --color-blue: #07b3ff;
-  --color-gray: #838587;
-  --color-red: #FF6464;
+  --color-primary: #F3BA2F;
+  --color-secondary: #1A1A1A;
+  --color-accent: #2A2A2A;
+  --color-muted: #6B7280;
+  --color-border: #374151;
+  --color-card: #1F2937;
+  --color-card-hover: #374151;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
 }
 
 body {
-  background: #181a1b;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  font-family: 'Satoshi', 'Rubik', 'Inter', sans-serif;
 }
 
+/* Myriad-inspired smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F3BA2F;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E5A82A;
+}
+
+/* Input styling */
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
-  /* inverts the color, making black -> white */
   cursor: pointer;
 }
 
@@ -34,4 +77,129 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* Button hover effects */
+.btn-primary {
+  background: linear-gradient(135deg, #F3BA2F 0%, #E5A82A 100%);
+  color: #000000;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(243, 186, 47, 0.3);
+}
+
+.btn-secondary {
+  background: #1F2937;
+  color: #FFFFFF;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #374151;
+  border-color: #F3BA2F;
+  transform: translateY(-1px);
+}
+
+/* Card styling */
+.card {
+  background: #1F2937;
+  border: 1px solid #374151;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: #374151;
+  border-color: #F3BA2F;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Myriad-inspired animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #1F2937 25%, #374151 50%, #1F2937 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(243, 186, 47, 0.3);
+}
+
+.glow-primary:hover {
+  box-shadow: 0 0 30px rgba(243, 186, 47, 0.5);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #F3BA2F 0%, #E5A82A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
