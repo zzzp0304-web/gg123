@@ -6,15 +6,9 @@ import { useGlobalContext } from "@/providers/GlobalContext";
 import { usePathname } from "next/navigation";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
-import {
-  WalletMultiButton,
-  WalletDisconnectButton,
-  BaseWalletMultiButton
-} from "@solana/wallet-adapter-react-ui";
-import { useWallet, useAnchorWallet } from "@solana/wallet-adapter-react";
-import { useConnection } from "@solana/wallet-adapter-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "@/components/elements/LanguageSwitcher";
+import { useWeb3 } from "@/providers/Web3Provider";
 
 interface HeaderTopProps {
   isCollapsed?: boolean;
@@ -22,7 +16,7 @@ interface HeaderTopProps {
 
 const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
   const { activeTab, setActiveTab } = useGlobalContext(); // Use Global Context
-  const wallet = useWallet();
+  const { account, isConnected, connectWallet, disconnectWallet } = useWeb3();
   const pathname = usePathname();
   const { t } = useTranslation();
 
@@ -118,7 +112,30 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
           </div>
 
           {/* Connect Wallet Button */}
-          <WalletMultiButton style={{ borderRadius: "15px", backgroundColor: "#F3BA2F", color: "#000", boxShadow: "inset 0px 2px 0px 0px rgba(255,255,255,0.16)" }} ></WalletMultiButton>
+          {!isConnected ? (
+            <button
+              onClick={connectWallet}
+              className="px-6 py-3 bg-gradient-to-r from-[#F3BA2F] to-[#E8A202] hover:from-[#E8A202] hover:to-[#D4941A] rounded-2xl font-bold text-black transition-all duration-300 shadow-[inset_0px_2px_0px_0px_rgba(255,255,255,0.16)] hover:shadow-xl active:scale-95 flex items-center gap-2"
+            >
+              <img src="/assets/bnb.png" alt="BNB" className="w-5 h-5" />
+              <span className="hidden md:inline">{t('common.selectWallet') || 'Select Wallet'}</span>
+              <span className="md:hidden">Connect</span>
+            </button>
+          ) : (
+            <div className="flex items-center gap-3">
+              <div className="px-4 py-2.5 bg-[#282828] rounded-2xl text-white font-medium flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="hidden md:inline">{account?.slice(0, 6)}...{account?.slice(-4)}</span>
+                <span className="md:hidden">{account?.slice(0, 4)}...</span>
+              </div>
+              <button
+                onClick={disconnectWallet}
+                className="px-4 py-2.5 bg-[#282828] hover:bg-[#383838] rounded-2xl text-white font-medium transition-all duration-300 active:scale-95"
+              >
+                {t('common.disconnect') || 'Disconnect'}
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <div className="px-[50px]">

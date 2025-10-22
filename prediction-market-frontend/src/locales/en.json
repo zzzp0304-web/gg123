@@ -17,6 +17,7 @@
     "reset": "Reset",
     "connect": "Connect",
     "disconnect": "Disconnect",
+    "selectWallet": "Select Wallet",
     "yes": "Yes",
     "no": "No",
     "active": "Active",
