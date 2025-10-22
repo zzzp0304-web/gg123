@@ -58,12 +58,14 @@ export default function MarketDetailPage() {
       if (response.ok) {
         alert(`${t("market.placeBet")} ${t("common.success")}: ${amount} BNB on ${market.options[selectedOption].text}`);
         setAmount("");
+        setSelectedOption(null);
       } else {
-        alert(`${t("common.error")}: ${t("errors.pleaseTryAgain")}`);
+        const errorData = await response.json().catch(() => ({ error: "Unknown error" }));
+        alert(`${t("common.error")}: ${errorData.error || t("errors.pleaseTryAgain")}`);
       }
     } catch (error) {
-      alert(`Bet placed: ${amount} BNB on ${market.options[selectedOption].text}`);
-      setAmount("");
+      console.error("Bet submission failed:", error);
+      alert(`${t("common.error")}: ${t("errors.networkError")}`);
     }
   };
 

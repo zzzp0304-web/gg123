@@ -5,7 +5,7 @@ A fully functional prediction market platform built on Binance Smart Chain (BSC)
 
 ## Current State (as of 2025-10-22)
 - ✅ Frontend: Next.js 15 with beautiful Binance-inspired UI
-- ✅ Backend: Express server with MongoDB
+- ✅ Backend: Express server with MongoDB (optional - works without database)
 - ✅ i18n: Chinese/English language switching implemented
 - ✅ Design: Complete UI design matching Binance aesthetic with BNB branding
 - ✅ Wallet: MetaMask integration with BSC network support
@@ -14,6 +14,10 @@ A fully functional prediction market platform built on Binance Smart Chain (BSC)
 - ✅ News Page: News articles with category labels
 - ✅ Filters: 5 filter types (Newest, Trending, Volume, Ending, Open)
 - ✅ Market Data: 50+ prediction markets from Myriad across all categories
+- ✅ Market Detail Pages: Dynamic pages with comprehensive betting interface
+- ✅ Betting Interface: Buy/Sell tabs, amount input, option selection buttons
+- ✅ Betting API: Backend endpoint to save bets (demo mode - in-memory storage)
+- ✅ Market Rules & Description: Expandable sections with market information
 - ⚠️ Blockchain: Demo mode - wallet connects but no real transactions
 - ❌ Smart Contracts: None deployed for BSC (demo mode)
 
@@ -235,12 +239,28 @@ CONTRACT_ADDRESS=0x...
 - 2025-10-22: Implemented all 5 filter types (Newest, Trending, Volume, Ending, Open)
 - 2025-10-22: Added 50+ market data from Myriad across all categories
 - 2025-10-22: Full bilingual support for all new features
+- 2025-10-22: Built dynamic market detail pages (/markets/[id]) with comprehensive betting interface
+- 2025-10-22: Implemented betting UI with Buy/Sell tabs, amount inputs, and option selection buttons
+- 2025-10-22: Created betting API endpoints (frontend /api/bets, backend /api/bets) to save bets
+- 2025-10-22: Added market descriptions and rules sections with expandable UI
+- 2025-10-22: Made market cards clickable across all pages (home, markets, topics) linking to detail pages
+- 2025-10-22: Added complete bilingual translations for betting interface and market details
+- 2025-10-22: Fixed error handling in betting to properly report API failures
 
 ## Next Steps
-1. Build betting modal UI for users to place bets
-2. Connect betting interface to database (save bets without blockchain transactions)
-3. Create user profile pages showing betting history
-4. Add market detail pages
-5. Implement real-time updates for market data
-6. Build admin panel for market creation
-7. Later: Smart contract development for actual blockchain integration
+1. Create user profile pages showing betting history and portfolio
+2. Add user dashboard with betting stats and performance tracking
+3. Implement real-time updates for market data and odds
+4. Build admin panel for market creation and management
+5. Add transaction history and bet tracking for users
+6. Implement leaderboard system showing top traders
+7. Add more interactive features (comments, sharing, notifications)
+8. Later: Smart contract development for actual blockchain integration
+
+## Demo Mode Features
+Currently, the platform operates in **demo mode**:
+- Bets are saved to in-memory storage (no database required)
+- No real blockchain transactions
+- Users can test the full betting workflow
+- All UI/UX features are functional
+- Market data is static but comprehensive

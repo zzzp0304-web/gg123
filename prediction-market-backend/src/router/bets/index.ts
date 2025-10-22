@@ -1,6 +1,6 @@
-import express from "express";
+import { Router } from "express";
 
-const router = express.Router();
+const router = Router();
 
 interface Bet {
   marketId: string;
@@ -13,7 +13,7 @@ interface Bet {
 
 const bets: Bet[] = [];
 
-router.post("/", async (req, res) => {
+const createBet = (req: any, res: any) => {
   try {
     const { marketId, option, amount, optionText, userAddress } = req.body;
 
@@ -34,14 +34,14 @@ router.post("/", async (req, res) => {
 
     console.log(`Bet saved: ${amount} BNB on ${optionText} for market ${marketId}`);
 
-    res.status(201).json(bet);
+    return res.status(201).json(bet);
   } catch (error) {
     console.error("Error saving bet:", error);
-    res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({ error: "Internal server error" });
   }
-});
+};
 
-router.get("/", async (req, res) => {
+const getBets = (req: any, res: any) => {
   try {
     const { marketId, userAddress } = req.query;
 
@@ -55,11 +55,14 @@ router.get("/", async (req, res) => {
       filteredBets = filteredBets.filter((b) => b.userAddress === userAddress);
     }
 
-    res.json(filteredBets);
+    return res.json(filteredBets);
   } catch (error) {
     console.error("Error fetching bets:", error);
-    res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({ error: "Internal server error" });
   }
-});
+};
+
+router.post("/", createBet);
+router.get("/", getBets);
 
 export default router;
