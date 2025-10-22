@@ -11,6 +11,10 @@ export interface Market {
   volume: string;
   endDate?: string;
   status?: 'active' | 'ended' | 'perpetual';
+  description?: string;
+  rules?: string;
+  resolutionSource?: string;
+  createdAt?: string;
 }
 
 export const topicMarkets: Record<string, Market[]> = {
@@ -26,7 +30,21 @@ export const topicMarkets: Record<string, Market[]> = {
       ],
       participants: 18,
       volume: "$1.4k",
-      endDate: "Nov 28"
+      endDate: "Nov 28",
+      description: "This market predicts whether Zcash (ZEC) will surpass Monero (XMR) in market capitalization before the end of November 2025.",
+      rules: `**Resolution Criteria:**
+- This market resolves to YES if Zcash's market cap exceeds Monero's market cap at any point before December 1, 2025, 00:00 UTC
+- This market resolves to NO if Zcash's market cap does not exceed Monero's market cap before the deadline
+
+**Resolution Source:**
+- Market cap data from CoinGecko and CoinMarketCap will be used for verification
+- The market will resolve based on the daily closing prices
+
+**Cancelation Conditions:**
+- If either Zcash or Monero becomes delisted from all major exchanges before resolution
+- If there is a significant protocol change or network failure affecting either asset`,
+      resolutionSource: "CoinGecko & CoinMarketCap",
+      createdAt: "Oct 15, 2025"
     },
     {
       id: "2",
@@ -39,7 +57,23 @@ export const topicMarkets: Record<string, Market[]> = {
       ],
       participants: 64,
       volume: "$1.79k",
-      endDate: "Oct 23"
+      endDate: "Oct 23",
+      description: "Predict whether BNB will have more green (up) or red (down) hourly candles in the next 48 hours before Friday at 12:00 PM UTC.",
+      rules: `**Resolution Criteria:**
+- Count all hourly candles for BNB/USDT from the current time until Friday at 12:00 PM UTC
+- Green candles: Close price > Open price
+- Red candles: Close price < Open price
+- Resolves to "More Green" if green candles outnumber red candles
+- Resolves to "More Red" if red candles outnumber green candles
+- If equal, market resolves to the option with more volume traded
+
+**Resolution Source:**
+- Data from Binance BNB/USDT hourly charts
+
+**Notes:**
+- Doji candles (equal open/close) are not counted toward either side`,
+      resolutionSource: "Binance Exchange",
+      createdAt: "Oct 21, 2025"
     },
     {
       id: "3",
@@ -117,7 +151,29 @@ export const topicMarkets: Record<string, Market[]> = {
       ],
       participants: 453,
       volume: "$200k",
-      status: "perpetual"
+      status: "perpetual",
+      description: "A perpetual social experiment gauging crypto market sentiment. This market never closes and will never be resolved.",
+      rules: `**This market is a social experiment to gauge social sentiment. To ensure a fair playground for all, there will be no trading fees charged for this market. This market is TRADING ONLY and will never be resolved.**
+
+Fear or Greed? The eternal question that drives markets, moves crowds, and shapes destinies.
+
+Are we in a state of collective fear, with uncertainty and doubt creeping into every decision? Or has greed taken over, with euphoria and FOMO driving the masses?
+
+**Market Period:** 
+- Infinite. This is a perpetual market that never closes.
+
+**Resolution Criteria:**
+- This market will NEVER resolve
+- No winners or losers - purely a gauge of sentiment
+
+**Cancelation Conditions:**
+This market will be canceled only if:
+- Platform undergoes technical changes requiring all markets to close
+- Platform administrators decide to end this experiment
+
+In the event of cancelation, participants may claim their stakes at the market value at the time of cancelation. This could result in a profit or a loss depending on price movements.`,
+      resolutionSource: "Never resolves",
+      createdAt: "Sep 10, 2025"
     },
     {
       id: "9",
