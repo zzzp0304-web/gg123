@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { getMarketsByCategory } from "@/data/topicMarkets";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function TopicPage() {
   const params = useParams();
@@ -108,9 +109,10 @@ export default function TopicPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredMarkets.map((market) => (
-            <div 
+            <Link 
               key={market.id}
-              className="bg-[#1E1E1E] rounded-xl overflow-hidden border border-[#2A2A2A] hover:border-[#F3BA2F] transition-all cursor-pointer group"
+              href={`/markets/${market.id}`}
+              className="bg-[#1E1E1E] rounded-xl overflow-hidden border border-[#2A2A2A] hover:border-[#F3BA2F] transition-all duration-150 cursor-pointer group"
             >
               <div className="relative h-40 bg-gradient-to-br from-[#2A2A2A] to-[#1E1E1E] overflow-hidden">
                 <img 
@@ -164,7 +166,7 @@ export default function TopicPage() {
                   )}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
