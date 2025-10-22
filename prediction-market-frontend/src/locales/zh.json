@@ -50,7 +50,8 @@
     "propose": "提议",
     "fund": "资金",
     "referral": "推荐",
-    "about": "关于"
+    "about": "关于",
+    "wallet": "钱包"
   },
   "deposit": {
     "title": "立即存款！",
@@ -167,7 +168,22 @@
     "transactionSuccess": "交易成功",
     "transactionFailed": "交易失败",
     "approveTransaction": "批准交易",
-    "rejectTransaction": "拒绝交易"
+    "rejectTransaction": "拒绝交易",
+    "balance": "余额",
+    "deposit": "存款",
+    "withdraw": "提款",
+    "depositBNB": "存入 BNB",
+    "depositAmount": "存款金额",
+    "depositSuccess": "存款成功！",
+    "depositFailed": "存款失败",
+    "enterAmount": "输入金额",
+    "availableBalance": "可用余额",
+    "platformBalance": "平台余额",
+    "transactionHistory": "交易历史",
+    "type": "类型",
+    "status": "状态",
+    "date": "日期",
+    "noTransactions": "暂无交易"
   },
   "errors": {
     "networkError": "网络错误",

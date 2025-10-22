@@ -15,10 +15,13 @@ A fully functional prediction market platform built on Binance Smart Chain (BSC)
 - ✅ Filters: 5 filter types (Newest, Trending, Volume, Ending, Open)
 - ✅ Market Data: 50+ prediction markets from Myriad across all categories
 - ✅ Market Detail Pages: Dynamic pages with comprehensive betting interface
-- ✅ Betting Interface: Buy/Sell tabs, amount input, option selection buttons
+- ✅ Betting Interface: Buy/Sell tabs, amount input, option selection buttons using platform balance
 - ✅ Betting API: Backend endpoint to save bets (demo mode - in-memory storage)
 - ✅ Market Rules & Description: Expandable sections with market information
-- ⚠️ Blockchain: Demo mode - wallet connects but no real transactions
+- ✅ Wallet/Balance System: Users can deposit BNB from MetaMask and use balance for betting
+- ✅ Balance Tracking: Backend API tracks user balances, deposits, and transactions
+- ✅ Transaction History: Users can view their deposit and betting history
+- ⚠️ Blockchain: Demo mode - wallet connects, real BNB deposits work, but betting uses platform balance
 - ❌ Smart Contracts: None deployed for BSC (demo mode)
 
 ## Architecture Plan
@@ -246,6 +249,14 @@ CONTRACT_ADDRESS=0x...
 - 2025-10-22: Made market cards clickable across all pages (home, markets, topics) linking to detail pages
 - 2025-10-22: Added complete bilingual translations for betting interface and market details
 - 2025-10-22: Fixed error handling in betting to properly report API failures
+- 2025-10-22: **WALLET SYSTEM**: Created /wallet page with BNB deposit functionality using ethers.js
+- 2025-10-22: **WALLET SYSTEM**: Implemented real BNB deposits from MetaMask/Trust Wallet to platform
+- 2025-10-22: **WALLET SYSTEM**: Added balance tracking system with deposit/deduct API endpoints
+- 2025-10-22: **WALLET SYSTEM**: Updated betting to use platform balance instead of direct wallet transactions
+- 2025-10-22: **WALLET SYSTEM**: Added balance display in betting interface with quick top-up link
+- 2025-10-22: **WALLET SYSTEM**: Added transaction history showing deposits and bets
+- 2025-10-22: **WALLET SYSTEM**: Added "Wallet" navigation item in sidebar
+- 2025-10-22: **WALLET SYSTEM**: Full bilingual support for all wallet features
 
 ## Next Steps
 1. Create user profile pages showing betting history and portfolio

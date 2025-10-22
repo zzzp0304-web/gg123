@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 const sidebarNavList = [
   { label: "Home", href: "/", icon: "Home", translationKey: "navigation.home" },
   { label: "Markets", href: "/markets", icon: "Markets", translationKey: "navigation.markets" },
+  { label: "Wallet", href: "/wallet", icon: "Wallet", translationKey: "navigation.wallet" },
   { label: "News", href: "/news", icon: "News", translationKey: "navigation.news" },
 ] as const;
 
@@ -70,6 +71,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ isCollapsed }) => {
   const getActiveItem = () => {
     if (pathname === "/") return "Home";
     if (pathname === "/markets") return "Markets";
+    if (pathname === "/wallet") return "Wallet";
     if (pathname === "/news") return "News";
     if (pathname.startsWith("/topics/")) return "Topics";
     if (pathname.startsWith("/fund")) return "Markets";

@@ -6,14 +6,17 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Icon from "@/components/elements/Icons";
+import { useWeb3 } from "@/providers/Web3Provider";
 
 export default function MarketDetailPage() {
   const params = useParams();
   const { t } = useTranslation();
+  const { account, isConnected } = useWeb3();
   const [activeTab, setActiveTab] = useState<"buy" | "sell">("buy");
   const [amount, setAmount] = useState("");
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showRules, setShowRules] = useState(true);
+  const [balance, setBalance] = useState<number>(0);
   
   const allMarkets = getAllMarkets();
   const market = allMarkets.find((m) => m.id === params.id);
@@ -23,6 +26,24 @@ export default function MarketDetailPage() {
       setSelectedOption(0);
     }
   }, [market]);
+
+  useEffect(() => {
+    if (isConnected && account) {
+      fetchBalance();
+    }
+  }, [isConnected, account]);
+
+  const fetchBalance = async () => {
+    try {
+      const response = await fetch(`/api/balance?address=${account}`);
+      if (response.ok) {
+        const data = await response.json();
+        setBalance(data.balance || 0);
+      }
+    } catch (error) {
+      console.error("Failed to fetch balance:", error);
+    }
+  };
 
   if (!market) {
     return (
@@ -42,6 +63,18 @@ export default function MarketDetailPage() {
       alert("Please enter an amount and select an option");
       return;
     }
+
+    if (!isConnected || !account) {
+      alert(t("errors.walletNotConnected"));
+      return;
+    }
+
+    const betAmount = parseFloat(amount);
+
+    if (balance < betAmount) {
+      alert(`${t("errors.insufficientBalance")}. ${t("wallet.balance")}: ${balance.toFixed(4)} BNB`);
+      return;
+    }
     
     try {
       const response = await fetch("/api/bets", {
@@ -50,19 +83,36 @@ export default function MarketDetailPage() {
         body: JSON.stringify({
           marketId: market.id,
           option: selectedOption,
-          amount: parseFloat(amount),
+          amount: betAmount,
           optionText: market.options[selectedOption].text,
+          userAddress: account,
         }),
       });
       
-      if (response.ok) {
-        alert(`${t("market.placeBet")} ${t("common.success")}: ${amount} BNB on ${market.options[selectedOption].text}`);
-        setAmount("");
-        setSelectedOption(null);
-      } else {
+      if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: "Unknown error" }));
         alert(`${t("common.error")}: ${errorData.error || t("errors.pleaseTryAgain")}`);
+        return;
       }
+
+      const balanceResponse = await fetch("/api/balance/deduct", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          address: account,
+          amount: betAmount,
+          reason: `Bet on market ${market.id}`,
+        }),
+      });
+
+      if (!balanceResponse.ok) {
+        const errorData = await balanceResponse.json().catch(() => ({ error: "Failed to deduct balance" }));
+        console.error("Balance deduction failed after bet placement:", errorData);
+      }
+
+      alert(`${t("market.placeBet")} ${t("common.success")}!\n${amount} BNB on ${market.options[selectedOption].text}`);
+      setAmount("");
+      fetchBalance();
     } catch (error) {
       console.error("Bet submission failed:", error);
       alert(`${t("common.error")}: ${t("errors.networkError")}`);
@@ -290,15 +340,30 @@ export default function MarketDetailPage() {
               {/* Place Bet Button */}
               <button
                 onClick={handleBet}
-                disabled={!amount || selectedOption === null}
+                disabled={!amount || selectedOption === null || !isConnected}
                 className={`w-full py-3 px-4 rounded-lg font-bold transition-all duration-150 ${
-                  amount && selectedOption !== null
+                  amount && selectedOption !== null && isConnected
                     ? "bg-[#F3BA2F] text-black hover:bg-[#F4C94F]"
                     : "bg-[#2A2A2A] text-[#5A5A5A] cursor-not-allowed"
                 }`}
               >
-                {activeTab === "buy" ? t("market.placeBet") : t("market.sellPosition")}
+                {!isConnected ? t("wallet.connectWallet") : activeTab === "buy" ? t("market.placeBet") : t("market.sellPosition")}
               </button>
+
+              {/* User Balance */}
+              {isConnected && (
+                <div className="mt-4 p-3 bg-[#0A0A0A] rounded-lg border border-[#2A2A2A]">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#9CA3AF] text-sm">{t("wallet.platformBalance")}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#F3BA2F] font-bold">{balance.toFixed(4)} BNB</span>
+                      <Link href="/wallet" className="text-xs text-[#F3BA2F] hover:underline">
+                        +
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Market Stats */}
               <div className="mt-6 pt-6 border-t border-[#2A2A2A] space-y-2">

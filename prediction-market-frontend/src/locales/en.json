@@ -50,7 +50,8 @@
     "propose": "Propose",
     "fund": "Fund",
     "referral": "Referral",
-    "about": "About"
+    "about": "About",
+    "wallet": "Wallet"
   },
   "deposit": {
     "title": "Deposit Now!",
@@ -167,7 +168,22 @@
     "transactionSuccess": "Transaction Success",
     "transactionFailed": "Transaction Failed",
     "approveTransaction": "Approve Transaction",
-    "rejectTransaction": "Reject Transaction"
+    "rejectTransaction": "Reject Transaction",
+    "balance": "Balance",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "depositBNB": "Deposit BNB",
+    "depositAmount": "Deposit Amount",
+    "depositSuccess": "Deposit Successful!",
+    "depositFailed": "Deposit Failed",
+    "enterAmount": "Enter amount",
+    "availableBalance": "Available Balance",
+    "platformBalance": "Platform Balance",
+    "transactionHistory": "Transaction History",
+    "type": "Type",
+    "status": "Status",
+    "date": "Date",
+    "noTransactions": "No transactions yet"
   },
   "errors": {
     "networkError": "Network Error",
