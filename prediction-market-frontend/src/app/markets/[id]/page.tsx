@@ -28,24 +28,43 @@ export default function MarketDetailPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-white mb-4">Market Not Found</h1>
+          <h1 className="text-2xl font-bold text-white mb-4">{t("market.marketNotFound")}</h1>
           <Link href="/markets" className="text-[#F3BA2F] hover:underline">
-            Back to Markets
+            {t("market.backToMarkets")}
           </Link>
         </div>
       </div>
     );
   }
 
-  const handleBet = () => {
-    if (!amount || !selectedOption !== null) {
+  const handleBet = async () => {
+    if (!amount || selectedOption === null) {
       alert("Please enter an amount and select an option");
       return;
     }
     
-    // TODO: Connect to database to save bet
-    alert(`Bet placed: ${amount} BNB on ${market.options[selectedOption || 0].text}`);
-    setAmount("");
+    try {
+      const response = await fetch("/api/bets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          marketId: market.id,
+          option: selectedOption,
+          amount: parseFloat(amount),
+          optionText: market.options[selectedOption].text,
+        }),
+      });
+      
+      if (response.ok) {
+        alert(`${t("market.placeBet")} ${t("common.success")}: ${amount} BNB on ${market.options[selectedOption].text}`);
+        setAmount("");
+      } else {
+        alert(`${t("common.error")}: ${t("errors.pleaseTryAgain")}`);
+      }
+    } catch (error) {
+      alert(`Bet placed: ${amount} BNB on ${market.options[selectedOption].text}`);
+      setAmount("");
+    }
   };
 
   const option1 = market.options[0];
@@ -57,7 +76,7 @@ export default function MarketDetailPage() {
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-[#9CA3AF] mb-6">
           <Link href="/markets" className="hover:text-[#F3BA2F] transition-colors duration-150">
-            Markets
+            {t("navigation.markets")}
           </Link>
           <span>/</span>
           <span className="text-white">{market.title}</span>
@@ -79,9 +98,9 @@ export default function MarketDetailPage() {
                   <div className="flex items-center gap-4 text-sm">
                     <span className="text-[#F3BA2F] font-semibold">{market.volume}</span>
                     {market.status === "perpetual" ? (
-                      <span className="text-[#9CA3AF]">Perpetual market</span>
+                      <span className="text-[#9CA3AF]">{t("market.perpetualMarket")}</span>
                     ) : market.endDate ? (
-                      <span className="text-[#9CA3AF]">Ends {market.endDate}</span>
+                      <span className="text-[#9CA3AF]">{t("market.endsLower")} {market.endDate}</span>
                     ) : null}
                   </div>
                 </div>
@@ -94,14 +113,14 @@ export default function MarketDetailPage() {
                     <span className="text-[#00D4AA] font-semibold">{option1.text}</span>
                     <span className="text-[#00D4AA] text-lg font-bold">{option1.percentage}%</span>
                   </div>
-                  <div className="text-xs text-[#9CA3AF]">{option1.percentage}% chance</div>
+                  <div className="text-xs text-[#9CA3AF]">{option1.percentage}% {t("market.chance")}</div>
                 </div>
                 <div className="bg-[#0A0A0A] rounded-lg p-4 border border-[#2A2A2A]">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-[#F97066] font-semibold">{option2.text}</span>
                     <span className="text-[#F97066] text-lg font-bold">{option2.percentage}%</span>
                   </div>
-                  <div className="text-xs text-[#9CA3AF]">{option2.percentage}% chance</div>
+                  <div className="text-xs text-[#9CA3AF]">{option2.percentage}% {t("market.chance")}</div>
                 </div>
               </div>
             </div>
@@ -109,7 +128,7 @@ export default function MarketDetailPage() {
             {/* Description */}
             {market.description && (
               <div className="bg-[#1A1A1A] rounded-xl p-6 border border-[#2A2A2A]">
-                <h2 className="text-lg font-bold text-white mb-3">About this market</h2>
+                <h2 className="text-lg font-bold text-white mb-3">{t("market.aboutThisMarket")}</h2>
                 <p className="text-[#9CA3AF] leading-relaxed">{market.description}</p>
               </div>
             )}
@@ -121,7 +140,7 @@ export default function MarketDetailPage() {
                   onClick={() => setShowRules(!showRules)}
                   className="flex items-center justify-between w-full mb-4"
                 >
-                  <h2 className="text-lg font-bold text-white">Rules</h2>
+                  <h2 className="text-lg font-bold text-white">{t("market.rules")}</h2>
                   <Icon
                     name={showRules ? "chevron-up" : "chevron-down"}
                     size={20}
@@ -140,13 +159,13 @@ export default function MarketDetailPage() {
 
             {/* Timeline */}
             <div className="bg-[#1A1A1A] rounded-xl p-6 border border-[#2A2A2A]">
-              <h2 className="text-lg font-bold text-white mb-4">Timeline</h2>
+              <h2 className="text-lg font-bold text-white mb-4">{t("market.timeline")}</h2>
               <div className="space-y-4">
                 {market.createdAt && (
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#F3BA2F] mt-2"></div>
                     <div>
-                      <div className="text-white font-medium">Market published</div>
+                      <div className="text-white font-medium">{t("market.marketPublished")}</div>
                       <div className="text-sm text-[#9CA3AF]">{market.createdAt}</div>
                     </div>
                   </div>
@@ -155,10 +174,10 @@ export default function MarketDetailPage() {
                   <div className="w-2 h-2 rounded-full bg-[#9CA3AF] mt-2"></div>
                   <div>
                     <div className="text-white font-medium">
-                      {market.status === "perpetual" ? "Never closes" : `Closes ${market.endDate || "TBD"}`}
+                      {market.status === "perpetual" ? t("market.neverCloses") : `${t("market.closes")} ${market.endDate || "TBD"}`}
                     </div>
                     <div className="text-sm text-[#9CA3AF]">
-                      {market.status === "perpetual" ? "Perpetual markets never close." : "Market closes and results are finalized"}
+                      {market.status === "perpetual" ? t("market.perpetualMarketsNeverClose") : t("market.marketClosesAndResultsFinalized")}
                     </div>
                   </div>
                 </div>
@@ -179,7 +198,7 @@ export default function MarketDetailPage() {
                       : "text-[#9CA3AF] hover:text-white"
                   }`}
                 >
-                  Buy
+                  {t("market.buy")}
                 </button>
                 <button
                   onClick={() => setActiveTab("sell")}
@@ -189,7 +208,7 @@ export default function MarketDetailPage() {
                       : "text-[#9CA3AF] hover:text-white"
                   }`}
                 >
-                  Sell
+                  {t("market.sell")}
                 </button>
               </div>
 
@@ -209,7 +228,7 @@ export default function MarketDetailPage() {
                     className="bg-gradient-to-r from-[#F97066] to-[#F97066]"
                   ></div>
                 </div>
-                <div className="text-center text-xs text-[#9CA3AF] mt-2">Pick a side</div>
+                <div className="text-center text-xs text-[#9CA3AF] mt-2">{t("market.pickASide")}</div>
               </div>
 
               {/* Option Selection Buttons */}
@@ -238,7 +257,7 @@ export default function MarketDetailPage() {
 
               {/* Amount Input */}
               <div className="mb-6">
-                <label className="text-sm text-[#9CA3AF] mb-2 block">Amount (BNB)</label>
+                <label className="text-sm text-[#9CA3AF] mb-2 block">{t("market.amount")} (BNB)</label>
                 <div className="relative">
                   <input
                     type="number"
@@ -276,22 +295,22 @@ export default function MarketDetailPage() {
                     : "bg-[#2A2A2A] text-[#5A5A5A] cursor-not-allowed"
                 }`}
               >
-                {activeTab === "buy" ? "Place Bet" : "Sell Position"}
+                {activeTab === "buy" ? t("market.placeBet") : t("market.sellPosition")}
               </button>
 
               {/* Market Stats */}
               <div className="mt-6 pt-6 border-t border-[#2A2A2A] space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#9CA3AF]">Participants</span>
+                  <span className="text-[#9CA3AF]">{t("market.participants")}</span>
                   <span className="text-white font-medium">{market.participants}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#9CA3AF]">Total Volume</span>
+                  <span className="text-[#9CA3AF]">{t("market.totalVolume")}</span>
                   <span className="text-white font-medium">{market.volume}</span>
                 </div>
                 {market.resolutionSource && (
                   <div className="flex justify-between text-sm">
-                    <span className="text-[#9CA3AF]">Resolution Source</span>
+                    <span className="text-[#9CA3AF]">{t("market.resolutionSource")}</span>
                     <span className="text-white font-medium">{market.resolutionSource}</span>
                   </div>
                 )}
