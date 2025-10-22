@@ -1,18 +1,13 @@
-import { TransactionInstruction, Keypair, PublicKey } from "@solana/web3.js";
-import { AnchorWallet, WalletContextState } from "@solana/wallet-adapter-react";
-
 export interface SidebarNavItemProps {
-  label:
-    | "Home"
-    | "FundMarket"
-    | "ProposeMarket"
-    | "Referral"
-    | "Profile"
-    | "About";
+  label: string;
   href: string;
   isActive: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   isCollapsed: boolean;
+  icon?: string;
+  count?: string;
+  image?: string;
+  isTopic?: boolean;
 }
 
 export interface SidebarNavProps {

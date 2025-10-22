@@ -69,6 +69,9 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ isCollapsed }) => {
   // Determine active item based on current path
   const getActiveItem = () => {
     if (pathname === "/") return "Home";
+    if (pathname === "/markets") return "Markets";
+    if (pathname === "/news") return "News";
+    if (pathname.startsWith("/topics/")) return "Topics";
     if (pathname.startsWith("/fund")) return "Markets";
     if (pathname.startsWith("/propose")) return "Markets";
     if (pathname.startsWith("/profile")) return "Profile";
@@ -78,6 +81,11 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ isCollapsed }) => {
   };
 
   const activeItem = getActiveItem();
+  
+  // Check if a topic is active
+  const isTopicActive = (topicHref: string) => {
+    return pathname === topicHref;
+  };
 
   return (
     <nav className="flex grow px-6 pt-3 pb-1 flex-col items-start gap-4 flex-[1_0_0] relative self-stretch min-h-0 overflow-y-auto">
@@ -114,7 +122,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ isCollapsed }) => {
               icon={icon}
               count={`${marketCount} ${t('topics.markets')}`}
               image={image}
-              isActive={false}
+              isActive={isTopicActive(href)}
               isCollapsed={isCollapsed}
               isTopic={true}
             />
