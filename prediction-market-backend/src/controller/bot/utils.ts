@@ -5,6 +5,10 @@ import MarketModel from "../../model/market"
 
 export const execute = async() => {
     try {
+        if (!process.env.DB_URL) {
+            console.log("Skipping bot tasks - no database configured");
+            return;
+        }
         // Find init markets
         await expireInitData();
         // Find pending market and expire
