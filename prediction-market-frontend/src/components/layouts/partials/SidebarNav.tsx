@@ -17,7 +17,7 @@ const topicsList = [
     href: "/topics/crypto", 
     icon: "Crypto", 
     marketCount: 20,
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=32&h=32&fit=crop&crop=center&auto=format&q=80",
+    image: "/assets/CRYPTO.png",
     translationKey: "topics.crypto"
   },
   { 
@@ -25,7 +25,7 @@ const topicsList = [
     href: "/topics/sports", 
     icon: "Sports", 
     marketCount: 19,
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=32&h=32&fit=crop&crop=center&auto=format&q=80",
+    image: "/assets/SPORTS.png",
     translationKey: "topics.sports"
   },
   { 
@@ -33,7 +33,7 @@ const topicsList = [
     href: "/topics/politics", 
     icon: "Politics", 
     marketCount: 8,
-    image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=32&h=32&fit=crop&crop=center&auto=format&q=80",
+    image: "/assets/POLITICS.png",
     translationKey: "topics.politics"
   },
   { 
@@ -41,7 +41,7 @@ const topicsList = [
     href: "/topics/economy", 
     icon: "Economy", 
     marketCount: 7,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=32&h=32&fit=crop&crop=center&auto=format&q=80",
+    image: "/assets/ECONOMICS.png",
     translationKey: "topics.economy"
   },
   { 
@@ -49,7 +49,7 @@ const topicsList = [
     href: "/topics/gaming", 
     icon: "Gaming", 
     marketCount: 11,
-    image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=32&h=32&fit=crop&crop=center&auto=format&q=80",
+    image: "/assets/GAMING.png",
     translationKey: "topics.gaming"
   },
   { 
@@ -57,16 +57,8 @@ const topicsList = [
     href: "/topics/culture", 
     icon: "Culture", 
     marketCount: 13,
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=32&h=32&fit=crop&crop=center&auto=format&q=80",
+    image: "/assets/IGGY-AZALEA.png",
     translationKey: "topics.culture"
-  },
-  { 
-    label: "Sentiment", 
-    href: "/topics/sentiment", 
-    icon: "Sentiment", 
-    marketCount: 4,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=32&h=32&fit=crop&crop=center&auto=format&q=80",
-    translationKey: "topics.sentiment"
   },
 ] as const;
 
@@ -88,7 +80,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ isCollapsed }) => {
   const activeItem = getActiveItem();
 
   return (
-    <nav className="flex grow px-6 pt-3 pb-1 flex-col items-start gap-4 flex-[1_0_0] relative self-stretch">
+    <nav className="flex grow px-6 pt-3 pb-1 flex-col items-start gap-4 flex-[1_0_0] relative self-stretch min-h-0 overflow-y-auto">
       {/* Main Navigation */}
       <div className="flex flex-col gap-1.5 w-full">
         {sidebarNavList.map(({ label, href, icon, translationKey }) => (

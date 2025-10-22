@@ -20,7 +20,8 @@ const SidebarNavItem: FC<SidebarNavItemProps> = ({
         className={`self-stretch transition-all duration-300 ease-in-out 
           ${isCollapsed ? "p-2 md:justify-center md:flex" : "px-2 py-2.5 gap-3 justify-start items-center"}
           hover:bg-[#2A2A2A] hover:rounded-lg
-          inline-flex items-center gap-3 cursor-pointer group`}
+          inline-flex items-center gap-3 cursor-pointer group relative`}
+        title={isCollapsed ? `${label} - ${count}` : undefined}
       >
         {/* Topic Image - Always visible */}
         <div className={`${isCollapsed ? "w-8 h-8" : "w-14 h-14"} rounded-lg overflow-hidden flex-shrink-0 transition-all duration-300`}>
@@ -44,11 +45,11 @@ const SidebarNavItem: FC<SidebarNavItemProps> = ({
 
         {/* Topic Content - Hidden when collapsed on desktop */}
         {!isCollapsed && (
-          <div className="flex flex-col gap-0.5 flex-1">
-            <div className="text-white text-base font-medium font-satoshi leading-tight">
+          <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+            <div className="text-white text-sm lg:text-base font-medium font-satoshi leading-tight truncate">
               {label}
             </div>
-            <div className="text-[#9CA3AF] text-sm font-normal font-satoshi leading-tight">
+            <div className="text-[#9CA3AF] text-xs lg:text-sm font-normal font-satoshi leading-tight truncate">
               {count}
             </div>
           </div>
@@ -77,7 +78,8 @@ const SidebarNavItem: FC<SidebarNavItemProps> = ({
             ? "bg-[#282828] rounded-lg border-l-2 border-[#F3BA2F]"
             : "hover:bg-[#2A2A2A] hover:rounded-lg"
         }
-        inline-flex items-center gap-3 cursor-pointer group`}
+        inline-flex items-center gap-3 cursor-pointer group relative`}
+      title={isCollapsed ? label : undefined}
     >
       <Icon
         name={icon}
@@ -89,7 +91,7 @@ const SidebarNavItem: FC<SidebarNavItemProps> = ({
       {/* Hide label when collapsed */}
       {!isCollapsed && (
         <div
-          className={`justify-start font-satoshi text-base font-medium leading-tight transition-all duration-300 ease-in-out
+          className={`justify-start font-satoshi text-sm lg:text-base font-medium leading-tight transition-all duration-300 ease-in-out truncate flex-1 min-w-0
           ${isActive ? "text-[#F3BA2F]" : "text-white group-hover:text-[#F3BA2F]"}`}
         >
           {label}

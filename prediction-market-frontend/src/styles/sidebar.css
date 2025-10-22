@@ -7,6 +7,44 @@
   overflow: hidden;
 }
 
+/* Custom Scrollbar for Sidebar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(107, 114, 128, 0.5);
+  border-radius: 2px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.7);
+}
+
+/* Hide horizontal scrollbar */
+.sidebar-scroll {
+  overflow-x: hidden;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 1200px) {
+  .sidebar-responsive {
+    width: 104px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-responsive {
+    width: 100% !important;
+    position: relative !important;
+    height: auto !important;
+  }
+}
+
 /* Ambient Light Effect */
 .sidebar-container::before {
   content: '';

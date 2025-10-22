@@ -21,9 +21,19 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
   const { width } = useWindowSize();
   const { t } = useTranslation();
 
+  // Auto-collapse on smaller screens
+  useEffect(() => {
+    if (width < 1200 && !isCollapsed) {
+      setIsCollapsed(true);
+    } else if (width >= 1200 && isCollapsed) {
+      // Optionally auto-expand on larger screens
+      // setIsCollapsed(false);
+    }
+  }, [width, isCollapsed, setIsCollapsed]);
+
   return (
     <div
-      className={`hidden md:flex fixed top-0 left-0 h-screen z-30 ${isCollapsed ? "w-[104px]" : "w-[280px]"} bg-[#0A0A0A] border-r border-[#374151] flex-col transition-all duration-300`}
+      className={`hidden md:flex fixed top-0 left-0 h-screen z-30 ${isCollapsed ? "w-[104px]" : "w-[280px]"} bg-[#0A0A0A] border-r border-[#374151] flex-col transition-all duration-300 overflow-y-auto overflow-x-hidden sidebar-scroll sidebar-responsive`}
     >
       {/* Logo */}
       <div
@@ -60,11 +70,11 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
         <Link
           href="/deposit"
           className={`w-full bg-gradient-to-br from-[#F3BA2F] to-[#E8A202] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] ${
-            isCollapsed ? "flex flex-col items-center justify-center gap-1.5 py-4 px-4" : "flex flex-col items-center justify-center gap-1.5 py-4 px-5"
+            isCollapsed ? "flex flex-col items-center justify-center gap-1.5 py-4 px-4" : "flex items-center justify-start gap-3 py-4 px-5"
           }`}
         >
           {/* BNB Logo */}
-          <div className={`${isCollapsed ? "w-14 h-14" : "w-16 h-16"} flex-shrink-0 transition-all duration-300 bg-[#1A1A1A] rounded-2xl p-3 flex items-center justify-center mx-auto`}>
+          <div className={`${isCollapsed ? "w-14 h-14" : "w-12 h-12"} flex-shrink-0 transition-all duration-300 bg-[#1A1A1A] rounded-2xl p-2 flex items-center justify-center ${isCollapsed ? "mx-auto" : ""}`}>
             <img
               src="/assets/bnb.png"
               alt="BNB"
@@ -74,7 +84,7 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
           
           {/* Text Content */}
           {!isCollapsed && (
-            <div className="flex flex-col gap-0.5 items-center text-center w-full">
+            <div className="flex flex-col gap-0.5 items-start text-left flex-1">
               <div className="text-white text-lg font-bold font-satoshi leading-tight">
                 {t('deposit.title')}
               </div>
@@ -121,15 +131,15 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
         <div className="self-stretch px-6 pb-5 flex-col justify-start items-start gap-2 flex-none border-t border-[#374151] pt-3">
           {/* Links */}
           <div className="flex items-center gap-1.5 flex-wrap">
-            <Link href="/partner" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+            <Link href="/partner" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
               Partner with us
             </Link>
-            <span className="text-[#9CA3AF] text-[10px]">•</span>
-            <Link href="/terms" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+            <span className="text-[#F3BA2F] text-[10px]">•</span>
+            <Link href="/terms" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
               Terms of Use
             </Link>
-            <span className="text-[#9CA3AF] text-[10px]">•</span>
-            <Link href="/privacy" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+            <span className="text-[#F3BA2F] text-[10px]">•</span>
+            <Link href="/privacy" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
               Privacy Policy
             </Link>
           </div>
@@ -145,15 +155,15 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
       <div className="md:hidden self-stretch px-6 pb-5 flex-col justify-start items-start gap-2 flex-none border-t border-[#374151] pt-3">
         {/* Links */}
         <div className="flex items-center gap-1.5 flex-wrap">
-          <Link href="/partner" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+          <Link href="/partner" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
             Partner with us
           </Link>
-          <span className="text-[#9CA3AF] text-[10px]">•</span>
-          <Link href="/terms" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+          <span className="text-[#F3BA2F] text-[10px]">•</span>
+          <Link href="/terms" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
             Terms of Use
           </Link>
-          <span className="text-[#9CA3AF] text-[10px]">•</span>
-          <Link href="/privacy" className="text-[#3B82F6] hover:text-[#60A5FA] text-[10px] font-medium font-satoshi transition-colors duration-200">
+          <span className="text-[#F3BA2F] text-[10px]">•</span>
+          <Link href="/privacy" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
             Privacy Policy
           </Link>
         </div>
@@ -168,8 +178,8 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
         data-size="Small"
         data-type="Tertiary"
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className={`w-8 p-2  ${isCollapsed ? "left-[120px] top-[56px]" : "left-[296px] top-[56px]"
-          } absolute origin-top-left hover:bg-[#3a3a3a] rotate-180 cursor-pointer bg-[#282828] rounded-2xl shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)] md:inline-flex hidden justify-start items-center gap-2`}
+        className={`w-8 h-8 p-2 ${isCollapsed ? "left-[112px] top-[90px]" : "left-[288px] top-[90px]"
+          } absolute origin-top-left hover:bg-[#3a3a3a] rotate-180 cursor-pointer bg-[#282828] rounded-2xl shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)] md:inline-flex hidden justify-center items-center gap-2 z-50`}
       >
         <div className="inline-flex flex-col justify-start items-start overflow-hidden">
           <div className="rounded-[3px]" />
