@@ -26,7 +26,17 @@
     "volume": "交易量",
     "timeLeft": "剩余时间",
     "comments": "评论",
-    "probability": "概率"
+    "probability": "概率",
+    "readMore": "阅读更多",
+    "noMarketsFound": "未找到市场"
+  },
+  "filters": {
+    "newest": "最新",
+    "trending": "热门",
+    "volume": "交易量",
+    "ending": "即将结束",
+    "open": "开放中",
+    "all": "全部"
   },
   "navigation": {
     "home": "首页",

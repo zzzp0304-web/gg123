@@ -26,7 +26,17 @@
     "volume": "Volume",
     "timeLeft": "Time Left",
     "comments": "Comments",
-    "probability": "Probability"
+    "probability": "Probability",
+    "readMore": "Read More",
+    "noMarketsFound": "No markets found"
+  },
+  "filters": {
+    "newest": "Newest",
+    "trending": "Trending",
+    "volume": "Volume",
+    "ending": "Ending",
+    "open": "Open",
+    "all": "All"
   },
   "navigation": {
     "home": "Home",
