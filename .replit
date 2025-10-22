@@ -37,10 +37,6 @@ externalPort = 80
 localPort = 9000
 externalPort = 9000
 
-[[ports]]
-localPort = 40875
-externalPort = 3000
-
 [deployment]
 deploymentTarget = "vm"
 run = ["bash", "-c", "cd prediction-market-backend && npm run dev & cd prediction-market-frontend && npm run start"]
