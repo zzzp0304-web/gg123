@@ -111,7 +111,9 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
         className={`self-stretch px-6 pt-2 pb-3 flex-col flex justify-center items-center flex-none gap-2`}
       >
         <Link
-          href="#"
+          href="https://x.com/YujianMarkets"
+          target="_blank"
+          rel="noopener noreferrer"
           className="p-3 bg-[#282828] rounded-2xl shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)] inline-flex justify-center items-center gap-2"
         >
           <FaXTwitter className="text-white" />

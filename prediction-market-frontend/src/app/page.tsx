@@ -155,41 +155,50 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {predictionCards.map((card) => (
-              <div key={card.id} className="bg-gradient-to-br from-[#1F2937] to-[#111827] rounded-2xl border border-[#374151] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                <div className="h-32 relative">
+              <div key={card.id} className="bg-[#1a1a1a] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                {/* Header Image */}
+                <div className="relative w-full h-24 overflow-hidden">
                   <img 
                     src={card.image} 
                     alt={card.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 </div>
-                <div className="p-4">
-                  <h3 className="text-white font-semibold text-sm mb-4 line-clamp-2">
-                    {card.title}
-                  </h3>
-                  <div className="space-y-3">
-                    {card.options.map((option, index) => (
-                      <div key={index} className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <span className="text-white text-sm font-medium">{option.text}</span>
-                          <span className="text-[#F3BA2F] text-sm font-bold">{option.percentage}%</span>
-                        </div>
-                        <div className="w-full bg-gray-700 rounded-full h-2">
-                          <div 
-                            className="bg-[#F3BA2F] h-2 rounded-full transition-all duration-300"
-                            style={{ width: `${option.percentage}%` }}
-                          ></div>
-                        </div>
-                        <button className="w-full bg-[#F3BA2F] hover:bg-[#E8A202] text-black font-semibold py-2 px-4 rounded-lg transition-all duration-300 text-sm">
-                          {option.text}
-                        </button>
-                      </div>
-                    ))}
-                    <div className="flex justify-between items-center text-xs text-gray-400 mt-3 pt-3 border-t border-gray-700">
-                      <span>+{card.participants}</span>
-                      <span>{card.volume}</span>
+
+                {/* Content */}
+                <div className="p-4 space-y-4">
+                  {/* Question */}
+                  <div className="text-center h-12 flex items-start justify-center pt-2">
+                    <h3 className="text-white text-sm font-bold leading-tight px-2">
+                      {card.title}
+                    </h3>
+                  </div>
+
+                  {/* Percentage Bar */}
+                  <div className="flex items-center gap-3 h-6">
+                    <span className="text-white text-sm font-semibold w-8 text-center">
+                      {card.options[0].percentage}%
+                    </span>
+                    <div className="flex-1 h-2 bg-[#F3BA2F] rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-white rounded-full transition-all duration-300"
+                        style={{ width: `${card.options[0].percentage}%` }}
+                      />
                     </div>
+                    <span className="text-white text-sm font-semibold w-8 text-center">
+                      {card.options[1].percentage}%
+                    </span>
+                  </div>
+
+                  {/* YES/NO Buttons */}
+                  <div className="flex gap-2 h-12">
+                    <button className="flex-1 px-4 py-3 bg-gradient-to-r from-[#F3BA2F] to-[#E8A202] hover:from-[#E8A202] hover:to-[#D4941A] border-2 border-[#F3BA2F] rounded-lg cursor-pointer transition-all duration-200 flex justify-center items-center shadow-lg">
+                      <span className="text-white text-sm font-bold">YES</span>
+                    </button>
+                    <button className="flex-1 px-4 py-3 rounded-lg cursor-pointer transition-all duration-200 flex justify-center items-center shadow-lg" style={{background: 'linear-gradient(to right, #6b7280, #4b5563)', border: '2px solid #6b7280'}}>
+                      <span className="text-white text-sm font-bold">NO</span>
+                    </button>
                   </div>
                 </div>
               </div>
