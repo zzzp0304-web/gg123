@@ -17,7 +17,7 @@ const topicsList = [
     label: "Crypto", 
     href: "/topics/crypto", 
     icon: "Crypto", 
-    marketCount: 20,
+    marketCount: 14,
     image: "/assets/CRYPTO.png",
     translationKey: "topics.crypto"
   },
@@ -25,7 +25,7 @@ const topicsList = [
     label: "Sports", 
     href: "/topics/sports", 
     icon: "Sports", 
-    marketCount: 19,
+    marketCount: 6,
     image: "/assets/SPORTS.png",
     translationKey: "topics.sports"
   },
@@ -33,7 +33,7 @@ const topicsList = [
     label: "Politics", 
     href: "/topics/politics", 
     icon: "Politics", 
-    marketCount: 8,
+    marketCount: 12,
     image: "/assets/POLITICS.png",
     translationKey: "topics.politics"
   },
@@ -57,7 +57,7 @@ const topicsList = [
     label: "Culture", 
     href: "/topics/culture", 
     icon: "Culture", 
-    marketCount: 13,
+    marketCount: 12,
     image: "/assets/IGGY-AZALEA.png",
     translationKey: "topics.culture"
   },

@@ -537,6 +537,36 @@ export const Icons = {
       />
     </svg>
   ),
+  Wallet: ({ size = 48, color = "#07B3FF" }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6Z"
+        stroke={color}
+        strokeWidth="2"
+        fill="none"
+      />
+      <path
+        d="M3 8H21"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="16"
+        cy="12"
+        r="2"
+        stroke={color}
+        strokeWidth="2"
+        fill="none"
+      />
+    </svg>
+  ),
 } as const;
 
 // TypeScript utility to get icon names

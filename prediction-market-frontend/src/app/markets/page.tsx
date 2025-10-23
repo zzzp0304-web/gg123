@@ -10,6 +10,7 @@ export default function MarketsPage() {
   const allMarkets = getAllMarkets();
   const [filter, setFilter] = useState("newest");
   const [categoryFilter, setCategoryFilter] = useState("all");
+  const [activeButton, setActiveButton] = useState("all");
   
   let filteredMarkets = [...allMarkets];
   
@@ -46,9 +47,27 @@ export default function MarketsPage() {
         <div className="flex gap-4 mb-6 flex-wrap">
           <div className="flex gap-2 flex-wrap">
             <button 
-              onClick={() => setFilter("newest")}
+              onClick={() => {
+                setCategoryFilter("all");
+                setFilter("newest");
+                setActiveButton("all");
+              }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "newest" 
+                activeButton === "all"
+                  ? "bg-[#F3BA2F] text-black" 
+                  : "bg-[#1E1E1E] text-[#838587] hover:text-white"
+              }`}
+            >
+              {t("filters.all")}
+            </button>
+            <button 
+              onClick={() => {
+                setFilter("newest");
+                setCategoryFilter("all");
+                setActiveButton("newest");
+              }}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                activeButton === "newest"
                   ? "bg-[#F3BA2F] text-black" 
                   : "bg-[#1E1E1E] text-[#838587] hover:text-white"
               }`}
@@ -56,9 +75,13 @@ export default function MarketsPage() {
               {t("filters.newest")}
             </button>
             <button 
-              onClick={() => setFilter("trending")}
+              onClick={() => {
+                setFilter("trending");
+                setCategoryFilter("all");
+                setActiveButton("trending");
+              }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "trending" 
+                activeButton === "trending"
                   ? "bg-[#F3BA2F] text-black" 
                   : "bg-[#1E1E1E] text-[#838587] hover:text-white"
               }`}
@@ -66,9 +89,13 @@ export default function MarketsPage() {
               {t("filters.trending")}
             </button>
             <button 
-              onClick={() => setFilter("volume")}
+              onClick={() => {
+                setFilter("volume");
+                setCategoryFilter("all");
+                setActiveButton("volume");
+              }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "volume" 
+                activeButton === "volume"
                   ? "bg-[#F3BA2F] text-black" 
                   : "bg-[#1E1E1E] text-[#838587] hover:text-white"
               }`}
@@ -76,9 +103,13 @@ export default function MarketsPage() {
               {t("filters.volume")}
             </button>
             <button 
-              onClick={() => setFilter("ending")}
+              onClick={() => {
+                setFilter("ending");
+                setCategoryFilter("all");
+                setActiveButton("ending");
+              }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "ending" 
+                activeButton === "ending"
                   ? "bg-[#F3BA2F] text-black" 
                   : "bg-[#1E1E1E] text-[#838587] hover:text-white"
               }`}
@@ -86,9 +117,13 @@ export default function MarketsPage() {
               {t("filters.ending")}
             </button>
             <button 
-              onClick={() => setFilter("open")}
+              onClick={() => {
+                setFilter("open");
+                setCategoryFilter("all");
+                setActiveButton("open");
+              }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "open" 
+                activeButton === "open"
                   ? "bg-[#F3BA2F] text-black" 
                   : "bg-[#1E1E1E] text-[#838587] hover:text-white"
               }`}
@@ -98,13 +133,90 @@ export default function MarketsPage() {
           </div>
           
           <div className="flex gap-2 flex-wrap">
-            <button onClick={() => setCategoryFilter("all")} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${categoryFilter === "all" ? "bg-[#F3BA2F] text-black" : "bg-[#1E1E1E] text-[#838587]"}`}>{t("filters.all")}</button>
-            <button onClick={() => setCategoryFilter("crypto")} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${categoryFilter === "crypto" ? "bg-[#F3BA2F] text-black" : "bg-[#1E1E1E] text-[#838587]"}`}>{t("topics.crypto")}</button>
-            <button onClick={() => setCategoryFilter("sports")} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${categoryFilter === "sports" ? "bg-[#F3BA2F] text-black" : "bg-[#1E1E1E] text-[#838587]"}`}>{t("topics.sports")}</button>
-            <button onClick={() => setCategoryFilter("politics")} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${categoryFilter === "politics" ? "bg-[#F3BA2F] text-black" : "bg-[#1E1E1E] text-[#838587]"}`}>{t("topics.politics")}</button>
-            <button onClick={() => setCategoryFilter("economy")} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${categoryFilter === "economy" ? "bg-[#F3BA2F] text-black" : "bg-[#1E1E1E] text-[#838587]"}`}>{t("topics.economy")}</button>
-            <button onClick={() => setCategoryFilter("gaming")} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${categoryFilter === "gaming" ? "bg-[#F3BA2F] text-black" : "bg-[#1E1E1E] text-[#838587]"}`}>{t("topics.gaming")}</button>
-            <button onClick={() => setCategoryFilter("culture")} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${categoryFilter === "culture" ? "bg-[#F3BA2F] text-black" : "bg-[#1E1E1E] text-[#838587]"}`}>{t("topics.culture")}</button>
+            <button 
+              onClick={() => {
+                setCategoryFilter("crypto");
+                setFilter("newest");
+                setActiveButton("crypto");
+              }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
+                activeButton === "crypto"
+                  ? "bg-[#F3BA2F] text-black" 
+                  : "bg-[#1E1E1E] text-[#838587] hover:text-white"
+              }`}
+            >
+              {t("topics.crypto")}
+            </button>
+            <button 
+              onClick={() => {
+                setCategoryFilter("sports");
+                setFilter("newest");
+                setActiveButton("sports");
+              }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
+                activeButton === "sports"
+                  ? "bg-[#F3BA2F] text-black" 
+                  : "bg-[#1E1E1E] text-[#838587] hover:text-white"
+              }`}
+            >
+              {t("topics.sports")}
+            </button>
+            <button 
+              onClick={() => {
+                setCategoryFilter("politics");
+                setFilter("newest");
+                setActiveButton("politics");
+              }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
+                activeButton === "politics"
+                  ? "bg-[#F3BA2F] text-black" 
+                  : "bg-[#1E1E1E] text-[#838587] hover:text-white"
+              }`}
+            >
+              {t("topics.politics")}
+            </button>
+            <button 
+              onClick={() => {
+                setCategoryFilter("economy");
+                setFilter("newest");
+                setActiveButton("economy");
+              }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
+                activeButton === "economy"
+                  ? "bg-[#F3BA2F] text-black" 
+                  : "bg-[#1E1E1E] text-[#838587] hover:text-white"
+              }`}
+            >
+              {t("topics.economy")}
+            </button>
+            <button 
+              onClick={() => {
+                setCategoryFilter("gaming");
+                setFilter("newest");
+                setActiveButton("gaming");
+              }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
+                activeButton === "gaming"
+                  ? "bg-[#F3BA2F] text-black" 
+                  : "bg-[#1E1E1E] text-[#838587] hover:text-white"
+              }`}
+            >
+              {t("topics.gaming")}
+            </button>
+            <button 
+              onClick={() => {
+                setCategoryFilter("culture");
+                setFilter("newest");
+                setActiveButton("culture");
+              }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
+                activeButton === "culture"
+                  ? "bg-[#F3BA2F] text-black" 
+                  : "bg-[#1E1E1E] text-[#838587] hover:text-white"
+              }`}
+            >
+              {t("topics.culture")}
+            </button>
           </div>
         </div>
 

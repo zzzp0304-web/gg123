@@ -30,12 +30,18 @@ export default function Home() {
     buttonText: "Predict Now"
   };
 
-  // Get top 8 markets for home page
+  // Get top 12 markets for home page (3 rows of 4)
   const allMarkets = getAllMarkets();
   const topMarkets = allMarkets
-    .filter(m => m.status !== "ended")
+    .filter(m => m.status !== "ended" && m.id !== "p5") // Exclude China-Taiwan market
     .sort((a, b) => b.participants - a.participants)
-    .slice(0, 8);
+    .slice(0, 11); // Take 11 instead of 12
+  
+  // Add ZCASH vs MONERO market to the top markets
+  const zcashMarket = allMarkets.find(m => m.id === "1");
+  if (zcashMarket) {
+    topMarkets.push(zcashMarket);
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0A0A0A] via-[#1A1A1A] to-[#0A0A0A]">
@@ -104,7 +110,11 @@ export default function Home() {
                   <img 
                     src={market.image} 
                     alt={market.title}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${
+                      market.id === "c1" || market.id === "g2" || market.id === "c2" || market.id === "p1" ? "object-top" : 
+                      market.id === "g1" || market.id === "s3" || market.id === "g5" || market.id === "e2" ? "object-center" :
+                      market.id === "9" ? "object-left" : ""
+                    }`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 </div>

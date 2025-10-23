@@ -22,7 +22,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "1",
       title: "Will ZCASH flip MONERO before December?",
-      image: "/carousel_12.png",
+      image: "/featured-markets/zcash_vs_monero.webp",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 56 },
@@ -49,7 +49,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "2",
       title: "48 BNB Candles before Friday noon",
-      image: "/carousel_13.png",
+      image: "/featured-markets/GettyImages-867941110-10f3a92a788c4e78abbec428a355618e.jpg",
       category: "crypto",
       options: [
         { text: "More Green", percentage: 45 },
@@ -78,7 +78,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "3",
       title: "Will ZCASH hit $369 before November?",
-      image: "/carousel_11.png",
+      image: "/featured-markets/zcash-1.png",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 11 },
@@ -91,7 +91,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "4",
       title: "Will ZORA flip PUMP in Market Cap within 120 days?",
-      image: "/carousel_22.png",
+      image: "/featured-markets/pump.fun_rival_zora.webp",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 34 },
@@ -104,7 +104,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "5",
       title: "ETH's next move: Pump to 4500 or Dump to 3100?",
-      image: "/carousel_12.png",
+      image: "/featured-markets/im-333228.avif",
       category: "crypto",
       options: [
         { text: "$4500", percentage: 56 },
@@ -117,7 +117,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "6",
       title: "Gold vs ETH - Which hits $5K first?",
-      image: "/carousel_13.png",
+      image: "/featured-markets/eth-vs-gold.jpg",
       category: "crypto",
       options: [
         { text: "Gold", percentage: 44 },
@@ -130,7 +130,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "7",
       title: "Mando vs KBM on BTC's next move: 120K or 100K?",
-      image: "/carousel_12.png",
+      image: "/featured-markets/3d-illustration-bitcoin-over-red-600nw-709680643.webp",
       category: "crypto",
       options: [
         { text: "120K", percentage: 44 },
@@ -143,7 +143,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "8",
       title: "Fear or Greed?",
-      image: "/carousel_22.png",
+      image: "/featured-markets/iStock-1387454800-scaled-e1673289014746.jpg",
       category: "crypto",
       options: [
         { text: "Fear", percentage: 51 },
@@ -178,7 +178,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "9",
       title: "Will PNKSTR hit $400M during October?",
-      image: "/carousel_23.png",
+      image: "/featured-markets/1LnDWcIhmJ_Hmtqw.jpg",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 3 },
@@ -191,7 +191,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "10",
       title: "Stablecoin market cap to pass $360B before February?",
-      image: "/carousel_11.png",
+      image: "/featured-markets/images.jpg",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 56 },
@@ -204,7 +204,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "11",
       title: "Will MetaMask launch its token before November?",
-      image: "/carousel_11.png",
+      image: "/featured-markets/35d448869a91486ba8b872ff98647195.png",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 2 },
@@ -217,7 +217,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "12",
       title: "Will Polymarket announce a token this year?",
-      image: "/carousel_22.png",
+      image: "/featured-markets/1756988619-polymarket-generica-03.webp",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 15 },
@@ -229,8 +229,8 @@ In the event of cancelation, participants may claim their stakes at the market v
     },
     {
       id: "13",
-      title: "New Solana ATH by end of year?",
-      image: "/carousel_13.png",
+      title: "New BNB ATH by end of year?",
+      image: "/featured-markets/bnb.jpg",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 30 },
@@ -243,7 +243,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "14",
       title: "Will Strategy (MSTR) sell any BTC by end of 2025?",
-      image: "/carousel_12.png",
+      image: "/featured-markets/913e5664d265cf37455be9ef109cbd76.avif",
       category: "crypto",
       options: [
         { text: "Yes", percentage: 6 },
@@ -258,7 +258,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s1",
       title: "Will the Lakers win the NBA Championship 2025?",
-      image: "/carousel_21.png",
+      image: "/featured-markets/eb0d58b5106cd47839be81daf40bfeab14868727fc69b0777ea6e70705d4d32b.webp",
       category: "sports",
       options: [
         { text: "Yes", percentage: 35 },
@@ -271,7 +271,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s2",
       title: "Messi to score 30+ goals this season?",
-      image: "/carousel_22.png",
+      image: "/featured-markets/dims.apnews.jpg",
       category: "sports",
       options: [
         { text: "Yes", percentage: 62 },
@@ -283,8 +283,8 @@ In the event of cancelation, participants may claim their stakes at the market v
     },
     {
       id: "s3",
-      title: "Will Real Madrid win Champions League 2025?",
-      image: "/carousel_23.png",
+      title: "Will Real Madrid win the 25-26 UEFA Champions League?",
+      image: "/featured-markets/madrid.avif",
       category: "sports",
       options: [
         { text: "Yes", percentage: 48 },
@@ -297,7 +297,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s4",
       title: "Will Manchester City win the Premier League?",
-      image: "/carousel_21.png",
+      image: "/featured-markets/LRNAAO7EBVOZBF6YLY33C53SPU.jpg",
       category: "sports",
       options: [
         { text: "Yes", percentage: 71 },
@@ -310,7 +310,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s5",
       title: "Tyson Fury vs Usyk rematch - Who wins?",
-      image: "/carousel_22.png",
+      image: "/featured-markets/GettyImages-2153594708-scaled.jpg",
       category: "sports",
       options: [
         { text: "Fury", percentage: 44 },
@@ -323,7 +323,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s6",
       title: "Will Lewis Hamilton win another F1 race in 2025?",
-      image: "/carousel_12.png",
+      image: "/featured-markets/lewis-hamilton-ferrari.jpg",
       category: "sports",
       options: [
         { text: "Yes", percentage: 67 },
@@ -332,13 +332,39 @@ In the event of cancelation, participants may claim their stakes at the market v
       participants: 534,
       volume: "$67.8k",
       endDate: "Dec 2025"
+    },
+    {
+      id: "s7",
+      title: "Will Shanghai Port F.C. win the 2025 Chinese Super League?",
+      image: "/featured-markets/Screenshot 2025-10-22 222801.png",
+      category: "sports",
+      options: [
+        { text: "Yes", percentage: 61 },
+        { text: "No", percentage: 39 }
+      ],
+      participants: 1234,
+      volume: "$145k",
+      endDate: "Jun 2025"
+    },
+    {
+      id: "s8",
+      title: "Will Ohio State go back to back in the College Football Playoff?",
+      image: "/featured-markets/1920_championshippic.jpg",
+      category: "sports",
+      options: [
+        { text: "Yes", percentage: 35 },
+        { text: "No", percentage: 65 }
+      ],
+      participants: 856,
+      volume: "$98.2k",
+      endDate: "Jan 2026"
     }
   ],
   politics: [
     {
       id: "p1",
-      title: "Will Donald Trump visit China in 2025?",
-      image: "/carousel_21.png",
+      title: "Will Donald Trump meet with Xi Jinping by the end of the year?",
+      image: "/featured-markets/china.jpg",
       category: "politics",
       options: [
         { text: "Yes", percentage: 14 },
@@ -351,7 +377,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p2",
       title: "Will there be a new EU member state by end of 2025?",
-      image: "/carousel_22.png",
+      image: "/featured-markets/istockphoto-480985277-612x612.jpg",
       category: "politics",
       options: [
         { text: "Yes", percentage: 22 },
@@ -362,37 +388,115 @@ In the event of cancelation, participants may claim their stakes at the market v
       endDate: "Dec 31"
     },
     {
-      id: "p3",
-      title: "Will Biden run for re-election in 2024?",
-      image: "/carousel_23.png",
+      id: "p5",
+      title: "China–Taiwan status change by end of 2025?",
+      image: "/carousel_11.png",
       category: "politics",
       options: [
-        { text: "Yes", percentage: 8 },
-        { text: "No", percentage: 92 }
+        { text: "Yes", percentage: 15 },
+        { text: "No", percentage: 85 }
       ],
-      participants: 2345,
-      volume: "$456k",
-      status: "ended"
+      participants: 1234,
+      volume: "$89.2k",
+      endDate: "Dec 31"
     },
     {
-      id: "p4",
-      title: "UK General Election before 2025?",
+      id: "p6",
+      title: "China passes major national security law in 2025?",
+      image: "/carousel_12.png",
+      category: "politics",
+      options: [
+        { text: "Yes", percentage: 78 },
+        { text: "No", percentage: 22 }
+      ],
+      participants: 987,
+      volume: "$76.5k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "p7",
+      title: "US issues executive order on NATO by end of 2025?",
+      image: "/carousel_13.png",
+      category: "politics",
+      options: [
+        { text: "Yes", percentage: 42 },
+        { text: "No", percentage: 58 }
+      ],
+      participants: 654,
+      volume: "$45.3k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "p8",
+      title: "US–China sign new bilateral treaty in 2025?",
       image: "/carousel_21.png",
       category: "politics",
       options: [
-        { text: "Yes", percentage: 12 },
-        { text: "No", percentage: 88 }
+        { text: "Yes", percentage: 23 },
+        { text: "No", percentage: 77 }
       ],
-      participants: 789,
-      volume: "$67.8k",
-      status: "ended"
+      participants: 543,
+      volume: "$38.7k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "p9",
+      title: "UK opens parliamentary inquiry on foreign interference in 2025?",
+      image: "/carousel_22.png",
+      category: "politics",
+      options: [
+        { text: "Yes", percentage: 67 },
+        { text: "No", percentage: 33 }
+      ],
+      participants: 432,
+      volume: "$29.8k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "p10",
+      title: "Xi Jinping visits the US in 2025?",
+      image: "/carousel_23.png",
+      category: "politics",
+      options: [
+        { text: "Yes", percentage: 34 },
+        { text: "No", percentage: 66 }
+      ],
+      participants: 876,
+      volume: "$54.2k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "p11",
+      title: "New UN Security Council resolution on Ukraine in 2025?",
+      image: "/carousel_11.png",
+      category: "politics",
+      options: [
+        { text: "Yes", percentage: 78 },
+        { text: "No", percentage: 22 }
+      ],
+      participants: 765,
+      volume: "$67.3k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "p12",
+      title: "China announces new military base abroad in 2025?",
+      image: "/carousel_12.png",
+      category: "politics",
+      options: [
+        { text: "Yes", percentage: 45 },
+        { text: "No", percentage: 55 }
+      ],
+      participants: 321,
+      volume: "$23.4k",
+      endDate: "Dec 31"
     }
   ],
   economy: [
     {
       id: "e1",
       title: "Will US inflation drop below 2% in 2025?",
-      image: "/carousel_12.png",
+      image: "/featured-markets/Feds-2-percent-inflation-target.webp",
       category: "economy",
       options: [
         { text: "Yes", percentage: 41 },
@@ -405,7 +509,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e2",
       title: "Fed to cut rates 3+ times in 2025?",
-      image: "/carousel_13.png",
+      image: "/featured-markets/fed.jpg",
       category: "economy",
       options: [
         { text: "Yes", percentage: 58 },
@@ -418,7 +522,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e3",
       title: "Will Tesla stock hit $500 before March 2025?",
-      image: "/carousel_11.png",
+      image: "/featured-markets/tesla_tsla_stock_247199dfbd.jpg",
       category: "economy",
       options: [
         { text: "Yes", percentage: 33 },
@@ -431,7 +535,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e4",
       title: "S&P 500 to reach 7000 before end of 2025?",
-      image: "/carousel_22.png",
+      image: "/featured-markets/sandp.jpg",
       category: "economy",
       options: [
         { text: "Yes", percentage: 64 },
@@ -444,7 +548,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e5",
       title: "Will there be a US recession in 2025?",
-      image: "/carousel_23.png",
+      image: "/featured-markets/will-there-be-a-recession-in-2025.jpg",
       category: "economy",
       options: [
         { text: "Yes", percentage: 27 },
@@ -453,13 +557,52 @@ In the event of cancelation, participants may claim their stakes at the market v
       participants: 1789,
       volume: "$234k",
       endDate: "Dec 31"
+    },
+    {
+      id: "e6",
+      title: "BYD outsells Tesla in China EV market in 2025?",
+      image: "/featured-markets/BYD_VS_TESLA-1024x576.jpg",
+      category: "economy",
+      options: [
+        { text: "Yes", percentage: 50 },
+        { text: "No", percentage: 50 }
+      ],
+      participants: 0,
+      volume: "$0k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "e7",
+      title: "Alibaba regains #1 e-commerce market share in China by end of 2025?",
+      image: "/featured-markets/122123979.avif",
+      category: "economy",
+      options: [
+        { text: "Yes", percentage: 50 },
+        { text: "No", percentage: 50 }
+      ],
+      participants: 0,
+      volume: "$0k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "e8",
+      title: "TikTok (Douyin) parent ByteDance surpasses Tencent in domestic ad revenue in 2025?",
+      image: "/featured-markets/TencentByteDanceFI.jpg",
+      category: "economy",
+      options: [
+        { text: "Yes", percentage: 50 },
+        { text: "No", percentage: 50 }
+      ],
+      participants: 0,
+      volume: "$0k",
+      endDate: "Dec 31"
     }
   ],
   gaming: [
     {
       id: "g1",
       title: "LoL Worlds 2025 - T1 to win again?",
-      image: "/lol-2025-worlds.jpg",
+      image: "/featured-markets/worlds2.jpg",
       category: "gaming",
       options: [
         { text: "Yes", percentage: 52 },
@@ -472,7 +615,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "g2",
       title: "Will GTA 6 release in 2025?",
-      image: "/carousel_21.png",
+      image: "/featured-markets/gta6.jpg",
       category: "gaming",
       options: [
         { text: "Yes", percentage: 78 },
@@ -483,22 +626,9 @@ In the event of cancelation, participants may claim their stakes at the market v
       endDate: "Dec 31"
     },
     {
-      id: "g3",
-      title: "TI 2025 Dota 2 - Will Team Liquid win?",
-      image: "/carousel_22.png",
-      category: "gaming",
-      options: [
-        { text: "Yes", percentage: 38 },
-        { text: "No", percentage: 62 }
-      ],
-      participants: 892,
-      volume: "$123k",
-      endDate: "Aug 2025"
-    },
-    {
       id: "g4",
       title: "Will Xbox Game Pass reach 50M subscribers in 2025?",
-      image: "/carousel_23.png",
+      image: "/featured-markets/Game-Pass.webp",
       category: "gaming",
       options: [
         { text: "Yes", percentage: 45 },
@@ -510,36 +640,23 @@ In the event of cancelation, participants may claim their stakes at the market v
     },
     {
       id: "g5",
-      title: "Fortnite to add a Battle Royale map in China?",
-      image: "/carousel_11.png",
+      title: "LoL Worlds 2025 - will a Chinese team win worlds?",
+      image: "/featured-markets/worlds3.jpg",
       category: "gaming",
       options: [
-        { text: "Yes", percentage: 61 },
-        { text: "No", percentage: 39 }
+        { text: "Yes", percentage: 67 },
+        { text: "No", percentage: 33 }
       ],
-      participants: 1234,
-      volume: "$145k",
-      endDate: "Jun 2025"
-    }
+      participants: 1890,
+      volume: "$167k",
+      endDate: "Dec 31"
+    },
   ],
   culture: [
     {
-      id: "c1",
-      title: "Will Taylor Swift announce a new album in 2025?",
-      image: "/carousel_21.png",
-      category: "culture",
-      options: [
-        { text: "Yes", percentage: 73 },
-        { text: "No", percentage: 27 }
-      ],
-      participants: 2345,
-      volume: "$189k",
-      endDate: "Dec 31"
-    },
-    {
       id: "c2",
       title: "Will Barbie 2 be announced in 2025?",
-      image: "/carousel_22.png",
+      image: "/featured-markets/barbie.jpg",
       category: "culture",
       options: [
         { text: "Yes", percentage: 56 },
@@ -550,44 +667,44 @@ In the event of cancelation, participants may claim their stakes at the market v
       endDate: "Dec 31"
     },
     {
-      id: "c3",
-      title: "Oscars 2025 - Will Oppenheimer win Best Picture?",
-      image: "/carousel_23.png",
-      category: "culture",
-      options: [
-        { text: "Yes", percentage: 82 },
-        { text: "No", percentage: 18 }
-      ],
-      participants: 2890,
-      volume: "$298k",
-      status: "ended"
-    },
-    {
       id: "c4",
-      title: "Will Marvel announce Avengers 6 release date in 2025?",
-      image: "/carousel_11.png",
+      title: "Will a meme dance challenge surpass 10 billion plays on Douyin by the end of 2025?",
+      image: "/featured-markets/231201122258-subject-three-dance-china.jpg",
       category: "culture",
       options: [
-        { text: "Yes", percentage: 67 },
-        { text: "No", percentage: 33 }
+        { text: "Yes", percentage: 50 },
+        { text: "No", percentage: 50 }
       ],
-      participants: 1890,
-      volume: "$167k",
+      participants: 0,
+      volume: "$0k",
       endDate: "Dec 31"
     },
     {
       id: "c5",
-      title: "Will The Weeknd release a new album in H1 2025?",
-      image: "/carousel_12.png",
+      title: "Will a new Chinese collectible toy surpass Labubu in search volume in 2025?",
+      image: "/featured-markets/GettyImages-2220163705-e1750416224401.webp",
       category: "culture",
       options: [
-        { text: "Yes", percentage: 48 },
-        { text: "No", percentage: 52 }
+        { text: "Yes", percentage: 50 },
+        { text: "No", percentage: 50 }
       ],
-      participants: 987,
-      volume: "$89.7k",
-      endDate: "Jun 30"
-    }
+      participants: 0,
+      volume: "$0k",
+      endDate: "Dec 31"
+    },
+    {
+      id: "c6",
+      title: "Will MrBeast break all-time YouTube video record in 2025?",
+      image: "/featured-markets/mr_beast_003 PC self.avif",
+      category: "culture",
+      options: [
+        { text: "Yes", percentage: 50 },
+        { text: "No", percentage: 50 }
+      ],
+      participants: 0,
+      volume: "$0k",
+      endDate: "Dec 31"
+    },
   ]
 };
 
