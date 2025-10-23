@@ -2,7 +2,6 @@
 
 import { useParams } from "next/navigation";
 import { getAllMarkets } from "@/data/topicMarkets";
-import { getTranslatedMarketTitle } from "@/utils/translations";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -20,7 +19,7 @@ export default function MarketDetailPage() {
   const [balance, setBalance] = useState<number>(0);
   
   const allMarkets = getAllMarkets();
-  const market = allMarkets.find((m) => m.id === params.id || m.slug === params.id);
+  const market = allMarkets.find((m) => m.slug === params.slug);
 
   useEffect(() => {
     if (market && market.options.length > 0) {
@@ -60,62 +59,22 @@ export default function MarketDetailPage() {
   }
 
   const handleBet = async () => {
-    if (!amount || selectedOption === null) {
-      alert("Please enter an amount and select an option");
-      return;
-    }
-
-    if (!isConnected || !account) {
+    if (!isConnected) {
       alert(t("errors.walletNotConnected"));
       return;
     }
 
-    const betAmount = parseFloat(amount);
-
-    if (balance < betAmount) {
-      alert(`${t("errors.insufficientBalance")}. ${t("wallet.balance")}: ${balance.toFixed(4)} BNB`);
+    if (!amount || selectedOption === null) {
+      alert(t("errors.fillAllFields"));
       return;
     }
-    
+
     try {
-      const response = await fetch("/api/bets", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          marketId: market.id,
-          option: selectedOption,
-          amount: betAmount,
-          optionText: market.options[selectedOption].text,
-          userAddress: account,
-        }),
-      });
-      
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: "Unknown error" }));
-        alert(`${t("common.error")}: ${errorData.error || t("errors.pleaseTryAgain")}`);
-        return;
-      }
-
-      const balanceResponse = await fetch("/api/balance/deduct", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          address: account,
-          amount: betAmount,
-          reason: `Bet on market ${market.id}`,
-        }),
-      });
-
-      if (!balanceResponse.ok) {
-        const errorData = await balanceResponse.json().catch(() => ({ error: "Failed to deduct balance" }));
-        console.error("Balance deduction failed after bet placement:", errorData);
-      }
-
-      alert(`${t("market.placeBet")} ${t("common.success")}!\n${amount} BNB on ${market.options[selectedOption].text}`);
-      setAmount("");
-      fetchBalance();
+      // Place bet logic here
+      console.log("Placing bet:", { amount, option: selectedOption, market: market.id });
+      alert(t("market.betPlaced"));
     } catch (error) {
-      console.error("Bet submission failed:", error);
+      console.error("Bet placement error:", error);
       alert(`${t("common.error")}: ${t("errors.networkError")}`);
     }
   };
@@ -132,7 +91,7 @@ export default function MarketDetailPage() {
             {t("navigation.markets")}
           </Link>
           <span>/</span>
-          <span className="text-white">{getTranslatedMarketTitle(market, t)}</span>
+          <span className="text-white">{market.title}</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -147,7 +106,7 @@ export default function MarketDetailPage() {
                   className="w-20 h-20 rounded-lg object-cover"
                 />
                 <div className="flex-1">
-                  <h1 className="text-2xl font-bold text-white mb-2">{getTranslatedMarketTitle(market, t)}</h1>
+                  <h1 className="text-2xl font-bold text-white mb-2">{market.title}</h1>
                   <div className="flex items-center gap-4 text-sm">
                     <span className="text-[#F3BA2F] font-semibold">{market.volume}</span>
                     {market.status === "perpetual" ? (
@@ -162,18 +121,16 @@ export default function MarketDetailPage() {
               {/* Options Display */}
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="bg-[#0A0A0A] rounded-lg p-4 border border-[#2A2A2A]">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[#00D4AA] font-semibold">{option1.text}</span>
-                    <span className="text-[#00D4AA] text-lg font-bold">{option1.percentage}%</span>
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-white mb-2">{option1.text}</div>
+                    <div className="text-2xl font-bold text-[#00D4AA]">{option1.percentage}%</div>
                   </div>
-                  <div className="text-xs text-[#9CA3AF]">{option1.percentage}% {t("market.chance")}</div>
                 </div>
                 <div className="bg-[#0A0A0A] rounded-lg p-4 border border-[#2A2A2A]">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[#F97066] font-semibold">{option2.text}</span>
-                    <span className="text-[#F97066] text-lg font-bold">{option2.percentage}%</span>
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-white mb-2">{option2.text}</div>
+                    <div className="text-2xl font-bold text-[#F97066]">{option2.percentage}%</div>
                   </div>
-                  <div className="text-xs text-[#9CA3AF]">{option2.percentage}% {t("market.chance")}</div>
                 </div>
               </div>
             </div>
@@ -181,23 +138,24 @@ export default function MarketDetailPage() {
             {/* Description */}
             {market.description && (
               <div className="bg-[#1A1A1A] rounded-xl p-6 border border-[#2A2A2A]">
-                <h2 className="text-lg font-bold text-white mb-3">{t("market.aboutThisMarket")}</h2>
+                <h2 className="text-lg font-bold text-white mb-4">{t("market.description")}</h2>
                 <p className="text-[#9CA3AF] leading-relaxed">{market.description}</p>
               </div>
             )}
 
-            {/* Rules Section */}
+            {/* Rules */}
             {market.rules && (
               <div className="bg-[#1A1A1A] rounded-xl p-6 border border-[#2A2A2A]">
                 <button
                   onClick={() => setShowRules(!showRules)}
-                  className="flex items-center justify-between w-full mb-4"
+                  className="flex items-center gap-2 text-lg font-bold text-white mb-4 hover:text-[#F3BA2F] transition-colors duration-150"
                 >
-                  <h2 className="text-lg font-bold text-white">{t("market.rules")}</h2>
-                  <Icon
-                    name={showRules ? "chevron-up" : "chevron-down"}
-                    size={20}
-                    color="#9CA3AF"
+                  <Icon name="Rules" size={20} />
+                  {t("market.rules")}
+                  <Icon 
+                    name="Down" 
+                    size={16} 
+                    className={`transition-transform duration-200 ${showRules ? 'rotate-180' : ''}`}
                   />
                 </button>
                 {showRules && (
@@ -311,31 +269,15 @@ export default function MarketDetailPage() {
               {/* Amount Input */}
               <div className="mb-6">
                 <label className="text-sm text-[#9CA3AF] mb-2 block">{t("market.amount")} (BNB)</label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    placeholder="0.00"
-                    className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white placeholder-[#5A5A5A] focus:border-[#F3BA2F] focus:outline-none transition-colors duration-150"
-                    min="0"
-                    step="0.01"
-                  />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9CA3AF] text-sm">
-                    BNB
-                  </span>
-                </div>
-                <div className="flex gap-2 mt-2">
-                  {[0.1, 0.5, 1, 5].map((preset) => (
-                    <button
-                      key={preset}
-                      onClick={() => setAmount(preset.toString())}
-                      className="flex-1 py-1 px-2 text-xs bg-[#0A0A0A] text-[#9CA3AF] border border-[#2A2A2A] rounded hover:border-[#F3BA2F] hover:text-[#F3BA2F] transition-all duration-150"
-                    >
-                      {preset}
-                    </button>
-                  ))}
-                </div>
+                <input
+                  type="number"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  placeholder="0.00"
+                  step="0.01"
+                  min="0"
+                  className="w-full bg-[#0A0A0A] text-white px-4 py-3 rounded-lg border border-[#2A2A2A] focus:border-[#F3BA2F] focus:outline-none transition-colors duration-150"
+                />
               </div>
 
               {/* Place Bet Button */}
@@ -369,17 +311,17 @@ export default function MarketDetailPage() {
               {/* Market Stats */}
               <div className="mt-6 pt-6 border-t border-[#2A2A2A] space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#9CA3AF]">{t("market.participants")}</span>
-                  <span className="text-white font-medium">{market.participants}</span>
+                  <span className="text-[#9CA3AF]">{t("market.totalVolume")}</span>
+                  <span className="text-white font-semibold">{market.volume}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#9CA3AF]">{t("market.totalVolume")}</span>
-                  <span className="text-white font-medium">{market.volume}</span>
+                  <span className="text-[#9CA3AF]">{t("market.participants")}</span>
+                  <span className="text-white font-semibold">{market.participants}</span>
                 </div>
                 {market.resolutionSource && (
                   <div className="flex justify-between text-sm">
                     <span className="text-[#9CA3AF]">{t("market.resolutionSource")}</span>
-                    <span className="text-white font-medium">{market.resolutionSource}</span>
+                    <span className="text-white font-semibold">{market.resolutionSource}</span>
                   </div>
                 )}
               </div>

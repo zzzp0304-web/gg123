@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useWeb3 } from "@/providers/Web3Provider";
 import { ethers } from "ethers";
+import Icon from "@/components/elements/Icons";
 
 interface Transaction {
   id: string;
@@ -122,9 +123,12 @@ export default function WalletPage() {
   if (!isConnected) {
     return (
       <div className="w-full min-h-screen bg-[#0A0A0A] text-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-white mb-4">{t("wallet.connectWallet")}</h1>
-          <p className="text-[#9CA3AF]">{t("errors.walletNotConnected")}</p>
+        <div className="text-center -mt-20">
+          <div className="mb-8 flex justify-center">
+            <Icon name="Wallet" size={120} color="#F3BA2F" />
+          </div>
+          <h1 className="text-5xl font-bold text-white mb-6">{t("wallet.connectWallet")}</h1>
+          <p className="text-xl text-[#9CA3AF]">{t("errors.walletNotConnected")}</p>
         </div>
       </div>
     );

@@ -68,7 +68,7 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
       {/* Deposit Now Section */}
       <div className={`self-stretch px-6 ${isCollapsed ? "pt-1 pb-3" : "pt-1 pb-3"} flex-none`}>
         <Link
-          href="/deposit"
+          href="/wallet"
           className={`w-full bg-gradient-to-br from-[#F3BA2F] to-[#E8A202] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] ${
             isCollapsed ? "flex flex-col items-center justify-center gap-1.5 py-4 px-4" : "flex items-center justify-start gap-3 py-4 px-5"
           }`}
@@ -131,23 +131,8 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
       {/* Footer Section */}
       {!isCollapsed && (
         <div className="self-stretch px-6 pb-5 flex-col justify-start items-start gap-2 flex-none border-t border-[#374151] pt-3">
-          {/* Links */}
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <Link href="/partner" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
-              Partner with us
-            </Link>
-            <span className="text-[#F3BA2F] text-[10px]">•</span>
-            <Link href="/terms" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
-              Terms of Use
-            </Link>
-            <span className="text-[#F3BA2F] text-[10px]">•</span>
-            <Link href="/privacy" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
-              Privacy Policy
-            </Link>
-          </div>
-
           {/* Copyright */}
-          <div className="text-[#6B7280] text-[10px] font-normal font-satoshi text-center w-full">
+          <div className="text-[#F3BA2F] text-[10px] font-normal font-satoshi text-center w-full">
             © 2025 All rights reserved
           </div>
         </div>
@@ -155,23 +140,8 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
 
       {/* Mobile Footer - Always visible on mobile */}
       <div className="md:hidden self-stretch px-6 pb-5 flex-col justify-start items-start gap-2 flex-none border-t border-[#374151] pt-3">
-        {/* Links */}
-        <div className="flex items-center gap-1.5 flex-wrap">
-          <Link href="/partner" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
-            Partner with us
-          </Link>
-          <span className="text-[#F3BA2F] text-[10px]">•</span>
-          <Link href="/terms" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
-            Terms of Use
-          </Link>
-          <span className="text-[#F3BA2F] text-[10px]">•</span>
-          <Link href="/privacy" className="text-[#F3BA2F] hover:text-[#F3BA2F]/80 text-[10px] font-medium font-satoshi transition-colors duration-200">
-            Privacy Policy
-          </Link>
-        </div>
-
         {/* Copyright */}
-        <div className="text-[#6B7280] text-[10px] font-normal font-satoshi text-center w-full">
+        <div className="text-[#F3BA2F] text-[10px] font-normal font-satoshi text-center w-full">
           © 2025 All rights reserved
         </div>
       </div>

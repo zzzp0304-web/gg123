@@ -1,6 +1,10 @@
+import { createSlug } from '../utils/slug';
+
 export interface Market {
   id: string;
+  slug: string;
   title: string;
+  titleKey?: string; // Translation key for title
   image: string;
   category: string;
   options: {
@@ -21,7 +25,9 @@ export const topicMarkets: Record<string, Market[]> = {
   crypto: [
     {
       id: "1",
+      slug: "will-zcash-flip-monero-before-december",
       title: "Will ZCASH flip MONERO before December?",
+      titleKey: "markets.willZcashFlipMonero",
       image: "/featured-markets/zcash_vs_monero.webp",
       category: "crypto",
       options: [
@@ -48,7 +54,9 @@ export const topicMarkets: Record<string, Market[]> = {
     },
     {
       id: "2",
+      slug: "48-bnb-candles-before-friday-noon",
       title: "48 BNB Candles before Friday noon",
+      titleKey: "markets.bnbCandlesBeforeFriday",
       image: "/featured-markets/GettyImages-867941110-10f3a92a788c4e78abbec428a355618e.jpg",
       category: "crypto",
       options: [
@@ -78,6 +86,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "3",
       title: "Will ZCASH hit $369 before November?",
+      titleKey: "markets.zcashHit369",
       image: "/featured-markets/zcash-1.png",
       category: "crypto",
       options: [
@@ -91,6 +100,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "4",
       title: "Will ZORA flip PUMP in Market Cap within 120 days?",
+      titleKey: "markets.zoraFlipPump",
       image: "/featured-markets/pump.fun_rival_zora.webp",
       category: "crypto",
       options: [
@@ -104,6 +114,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "5",
       title: "ETH's next move: Pump to 4500 or Dump to 3100?",
+      titleKey: "markets.ethPump4500Dump3100",
       image: "/featured-markets/im-333228.avif",
       category: "crypto",
       options: [
@@ -117,7 +128,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "6",
       title: "Gold vs ETH - Which hits $5K first?",
-      image: "/featured-markets/eth-vs-gold.jpg",
+      image: "/assets/ethereum-coin-eth-digital-cryptocurrency_258219-297.jpg",
       category: "crypto",
       options: [
         { text: "Gold", percentage: 44 },
@@ -496,6 +507,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e1",
       title: "Will US inflation drop below 2% in 2025?",
+      titleKey: "markets.inflationTarget2Percent",
       image: "/featured-markets/Feds-2-percent-inflation-target.webp",
       category: "economy",
       options: [
@@ -509,6 +521,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e2",
       title: "Fed to cut rates 3+ times in 2025?",
+      titleKey: "markets.fedRateCut2025",
       image: "/featured-markets/fed.jpg",
       category: "economy",
       options: [
@@ -602,6 +615,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "g1",
       title: "LoL Worlds 2025 - T1 to win again?",
+      titleKey: "markets.lolWorldsT1Win",
       image: "/featured-markets/worlds2.jpg",
       category: "gaming",
       options: [
@@ -615,6 +629,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "g2",
       title: "Will GTA 6 release in 2025?",
+      titleKey: "markets.gta6Release2025",
       image: "/featured-markets/gta6.jpg",
       category: "gaming",
       options: [
@@ -628,6 +643,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "g4",
       title: "Will Xbox Game Pass reach 50M subscribers in 2025?",
+      titleKey: "markets.xboxGamePass50m",
       image: "/featured-markets/Game-Pass.webp",
       category: "gaming",
       options: [
@@ -641,6 +657,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "g5",
       title: "LoL Worlds 2025 - will a Chinese team win worlds?",
+      titleKey: "markets.lolWorldsChineseTeam",
       image: "/featured-markets/worlds3.jpg",
       category: "gaming",
       options: [
@@ -656,6 +673,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "c2",
       title: "Will Barbie 2 be announced in 2025?",
+      titleKey: "markets.barbieBoxOffice",
       image: "/featured-markets/barbie.jpg",
       category: "culture",
       options: [
@@ -709,9 +727,21 @@ In the event of cancelation, participants may claim their stakes at the market v
 };
 
 export const getAllMarkets = (): Market[] => {
-  return Object.values(topicMarkets).flat();
+  const allMarkets = Object.values(topicMarkets).flat();
+  
+  // Auto-generate slugs for markets that don't have them
+  return allMarkets.map(market => ({
+    ...market,
+    slug: market.slug || createSlug(market.title)
+  }));
 };
 
 export const getMarketsByCategory = (category: string): Market[] => {
-  return topicMarkets[category.toLowerCase()] || [];
+  const markets = topicMarkets[category.toLowerCase()] || [];
+  
+  // Auto-generate slugs for markets that don't have them
+  return markets.map(market => ({
+    ...market,
+    slug: market.slug || createSlug(market.title)
+  }));
 };

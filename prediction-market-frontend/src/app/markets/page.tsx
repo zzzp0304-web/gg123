@@ -2,6 +2,7 @@
 
 import { useTranslation } from "react-i18next";
 import { getAllMarkets } from "@/data/topicMarkets";
+import { getTranslatedMarketTitle } from "@/utils/translations";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -224,7 +225,7 @@ export default function MarketsPage() {
           {filteredMarkets.map((market) => (
             <Link 
               key={market.id}
-              href={`/markets/${market.id}`}
+              href={`/markets/${market.slug}`}
               className="bg-[#1E1E1E] rounded-xl overflow-hidden border border-[#2A2A2A] hover:border-[#F3BA2F] transition-all duration-150 cursor-pointer group"
             >
               <div className="relative h-40 bg-gradient-to-br from-[#2A2A2A] to-[#1E1E1E] overflow-hidden">
@@ -236,20 +237,17 @@ export default function MarketsPage() {
                     e.currentTarget.src = "/carousel_12.png";
                   }}
                 />
-                <div className="absolute top-2 right-2 px-2 py-1 bg-black/60 rounded text-[#F3BA2F] text-xs font-medium">
-                  {t(`topics.${market.category}`)}
-                </div>
               </div>
               
               <div className="p-4">
                 <h3 className="text-white text-sm font-medium mb-3 line-clamp-2 min-h-[40px]">
-                  {market.title}
+                  {getTranslatedMarketTitle(market, t)}
                 </h3>
                 
                 <div className="space-y-2 mb-3">
                   {market.options.map((option, idx) => (
                     <div key={idx} className="flex items-center justify-between">
-                      <button className="flex-1 bg-[#2A2A2A] hover:bg-[#F3BA2F] hover:text-black text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors mr-2">
+                      <button className="flex-1 bg-[#2A2A2A] hover:bg-[#F3BA2F] hover:text-black text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors mr-2 cursor-pointer">
                         {option.text}
                       </button>
                       <span className="text-[#F3BA2F] text-xs font-bold min-w-[45px] text-right">

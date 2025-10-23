@@ -59,28 +59,6 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
                   {t('market.activeMarkets')}
                 </span>
               </button>
-
-              {/* Pending Market Button */}
-              <button
-                onClick={() => setActiveTab("PENDING")}
-                className={`px-4 py-2.5 rounded-2xl flex items-center cursor-pointer gap-2 transition-all duration-300
-        ${activeTab === "PENDING"
-                    ? "bg-[#282828] shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)]"
-                    : "bg-transparent hover:bg-[#2a2a2a] hover:shadow-md hover:scale-95"
-                  }`}
-              >
-                <Icon
-                  name="PendingMarket"
-                  color={activeTab === "PENDING" ? "#FF6464" : "#838587"}
-                  className="transition-all duration-300 ease-in-out hover:scale-110"
-                />
-                <span
-                  className={`text-base font-medium font-satoshi leading-normal transition-all duration-300 ease-in-out
-          ${activeTab === "PENDING" ? "text-white" : "text-[#838587]"}`}
-                >
-                  {t('market.pendingMarkets')}
-                </span>
-              </button>
             </div>
           ) : (
             ""
@@ -115,15 +93,17 @@ const HeaderTop: React.FC<HeaderTopProps> = ({ isCollapsed }) => {
           {!isConnected ? (
             <button
               onClick={connectWallet}
-              className="px-6 py-3 bg-gradient-to-r from-[#F3BA2F] to-[#E8A202] hover:from-[#E8A202] hover:to-[#D4941A] rounded-2xl font-bold text-black transition-all duration-300 shadow-[inset_0px_2px_0px_0px_rgba(255,255,255,0.16)] hover:shadow-xl active:scale-95 flex items-center gap-2"
+              className="px-6 py-3 bg-gradient-to-r from-[#F3BA2F] to-[#E8A202] hover:from-[#E8A202] hover:to-[#D4941A] rounded-2xl font-bold text-black transition-all duration-300 shadow-[inset_0px_2px_0px_0px_rgba(255,255,255,0.16)] hover:shadow-xl active:scale-95 flex items-center gap-2 cursor-pointer"
             >
-              <img src="/assets/bnb.png" alt="BNB" className="w-5 h-5" />
+              <div className="w-5 h-5 bg-[#1A1A1A] rounded-lg p-1 flex items-center justify-center">
+                <img src="/assets/bnb.png" alt="BNB" className="w-full h-full object-contain" />
+              </div>
               <span className="hidden md:inline">{t('common.selectWallet') || 'Select Wallet'}</span>
               <span className="md:hidden">Connect</span>
             </button>
           ) : (
             <div className="flex items-center gap-3">
-              <div className="px-4 py-2.5 bg-[#282828] rounded-2xl text-white font-medium flex items-center gap-2">
+              <div className="pl-1 pr-4 py-2.5 bg-[#282828] rounded-2xl text-white font-medium flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                 <span className="hidden md:inline">{account?.slice(0, 6)}...{account?.slice(-4)}</span>
                 <span className="md:hidden">{account?.slice(0, 4)}...</span>

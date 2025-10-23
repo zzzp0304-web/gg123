@@ -9,7 +9,6 @@ const sidebarNavList = [
   { label: "Home", href: "/", icon: "Home", translationKey: "navigation.home" },
   { label: "Markets", href: "/markets", icon: "Markets", translationKey: "navigation.markets" },
   { label: "Wallet", href: "/wallet", icon: "Wallet", translationKey: "navigation.wallet" },
-  { label: "News", href: "/news", icon: "News", translationKey: "navigation.news" },
 ] as const;
 
 const topicsList = [
@@ -72,13 +71,11 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ isCollapsed }) => {
     if (pathname === "/") return "Home";
     if (pathname === "/markets") return "Markets";
     if (pathname === "/wallet") return "Wallet";
-    if (pathname === "/news") return "News";
     if (pathname.startsWith("/topics/")) return "Topics";
     if (pathname.startsWith("/fund")) return "Markets";
     if (pathname.startsWith("/propose")) return "Markets";
     if (pathname.startsWith("/profile")) return "Profile";
     if (pathname.startsWith("/referral")) return "Earn";
-    if (pathname.startsWith("/about")) return "News";
     return "Home";
   };
 
