@@ -57,6 +57,10 @@
     "title": "立即存款！",
     "subtitle": "开始使用 BNB 交易"
   },
+  "sidebar": {
+    "dexscreener": "Dexscreener",
+    "twitter": "X (推特)"
+  },
   "topics": {
     "crypto": "加密货币",
     "sports": "体育",
@@ -214,6 +218,8 @@
     "value": "价值"
   },
   "markets": {
+    "barbieBoxOffice": "芭比电影",
+    "realMadridChampionsLeague": "皇家马德里",
     "willZcashFlipMonero": "ZCASH 会在12月前超越 MONERO 吗？",
     "bnbCandlesBeforeFriday": "周五中午前48根BNB蜡烛",
     "zcashHit369": "ZCASH会在11月前达到369美元吗？",

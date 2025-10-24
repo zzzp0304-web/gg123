@@ -106,6 +106,28 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
         </Link>
       </div>
 
+      {/* Partner Logo Box */}
+      <div className={`self-stretch px-6 ${isCollapsed ? "pt-2 pb-3" : "pt-2 pb-3"} flex-none`}>
+        <Link
+          href="#"
+          className="w-full p-3 bg-[#282828] rounded-2xl shadow-[inset_0px_2px_0px_0px_rgba(53,53,53,1.00)] flex justify-center items-center gap-2 transition-all duration-300 hover:opacity-80 cursor-pointer"
+        >
+          <img
+            src="/featured-markets/unnamed.webp"
+            alt="Dexscreener"
+            className="h-6 object-contain"
+          />
+          {!isCollapsed && (
+            <div className="text-white text-base font-medium font-satoshi leading-normal">
+              {t('sidebar.dexscreener')}
+            </div>
+          )}
+          <div className="md:hidden text-white text-base font-medium font-satoshi leading-normal">
+            {t('sidebar.dexscreener')}
+          </div>
+        </Link>
+      </div>
+
       {/* Social Links */}
       <div
         className={`self-stretch px-6 pt-2 pb-3 flex-col flex justify-center items-center flex-none gap-2`}
@@ -119,11 +141,11 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
           <FaXTwitter className="text-white" />
           {!isCollapsed && (
             <div className="justify-start text-white text-base font-medium font-satoshi leading-normal">
-              X (twitter)
+              {t('sidebar.twitter')}
             </div>
           )}
           <div className="md:hidden justify-start text-white text-base font-medium font-satoshi leading-normal">
-            X (twitter)
+            {t('sidebar.twitter')}
           </div>
         </Link>
       </div>

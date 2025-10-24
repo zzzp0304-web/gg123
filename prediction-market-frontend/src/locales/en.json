@@ -57,6 +57,10 @@
     "title": "Deposit Now!",
     "subtitle": "Start trading with BNB"
   },
+  "sidebar": {
+    "dexscreener": "Dexscreener",
+    "twitter": "X (twitter)"
+  },
   "topics": {
     "crypto": "Crypto",
     "sports": "Sports",
@@ -214,6 +218,8 @@
     "value": "Value"
   },
   "markets": {
+    "barbieBoxOffice": "Barbie Movie",
+    "realMadridChampionsLeague": "Real Madrid",
     "willZcashFlipMonero": "Will ZCASH flip MONERO before December?",
     "bnbCandlesBeforeFriday": "48 BNB Candles before Friday noon",
     "zcashHit369": "Will ZCASH hit $369 before November?",
