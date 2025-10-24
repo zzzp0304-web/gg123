@@ -1,6 +1,7 @@
 import { MarketCarouselItemProps } from "@/types/type";
 import { FaRegClock, FaRegStar } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const MarketCarouselItem: React.FC<MarketCarouselItemProps> = ({
   category,
@@ -13,6 +14,8 @@ const MarketCarouselItem: React.FC<MarketCarouselItemProps> = ({
   yesPercentage,
   comments,
 }) => {
+  const { t } = useTranslation();
+  
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
@@ -66,18 +69,18 @@ const MarketCarouselItem: React.FC<MarketCarouselItemProps> = ({
         {/* Stats */}
         <div className="flex items-center gap-6">
           <div className="flex flex-col">
-            <span className="text-[#838587] text-xs">Volume</span>
+            <span className="text-[#838587] text-xs">{t('stats.volume')}</span>
             <span className="text-white text-sm font-semibold">{volume}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-[#838587] text-xs">Time Left</span>
+            <span className="text-[#838587] text-xs">{t('stats.timeLeft')}</span>
             <div className="flex items-center gap-1">
               <FaRegClock className="text-[#3fd145] w-3 h-3" />
               <span className="text-[#3fd145] text-sm font-semibold">{timeLeft}</span>
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="text-[#838587] text-xs">Yes %</span>
+            <span className="text-[#838587] text-xs">{t('stats.yesPercent')}</span>
             <span className="text-white text-sm font-semibold">{yesPercentage}%</span>
           </div>
         </div>

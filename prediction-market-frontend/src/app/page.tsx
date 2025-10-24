@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { getAllMarkets } from "@/data/topicMarkets";
-import { getTranslatedMarketTitle } from "@/utils/translations";
+import { getTranslatedMarketTitle, getTranslatedOptionText } from "@/utils/translations";
 import Link from "next/link";
 
 export default function Home() {
@@ -29,56 +29,51 @@ export default function Home() {
       id: "g2", 
       title: "GTA 6 Release",
       titleKey: "markets.gta6Release2025",
-      subtitle: "Will it release in 2025?",
+      subtitleKey: "carouselSubtitles.gta6",
       image: "/featured-markets/gta6.jpg",
-      prizePool: "456k Volume",
-      topPrize: "3,456 Participants",
-      totalWinners: "78% Yes",
-      buttonText: "Predict Now"
+      volume: "456k",
+      participants: "3,456",
+      totalWinners: "78% Yes"
     },
     {
       id: "g1",
       title: "LoL Worlds 2025",
       titleKey: "markets.lolWorldsT1Win",
-      subtitle: "T1 to win again?",
+      subtitleKey: "carouselSubtitles.lolWorlds",
       image: "/assets/lol-2025-worlds.jpg",
-      prizePool: "500 Million Points",
-      topPrize: "100 Million Points",
-      totalWinners: "150",
-      buttonText: "Predict Now"
+      volume: "500M",
+      participants: "100M",
+      totalWinners: "150"
     },
     {
       id: "6",
       title: "Real Madrid",
       titleKey: "markets.realMadridChampionsLeague",
-      subtitle: "Will they win Champions League?",
+      subtitleKey: "carouselSubtitles.realMadrid",
       image: "/featured-markets/madrid.avif",
-      prizePool: "30.8k Volume",
-      topPrize: "331 Participants",
-      totalWinners: "56% Yes",
-      buttonText: "Predict Now"
+      volume: "30.8k",
+      participants: "331",
+      totalWinners: "56% Yes"
     },
     {
       id: "c1",
       title: "Barbie Movie",
       titleKey: "markets.barbieBoxOffice",
-      subtitle: "Will it break box office records?",
+      subtitleKey: "carouselSubtitles.barbie",
       image: "/featured-markets/barbie.jpg",
-      prizePool: "24.4k Volume",
-      topPrize: "300 Participants",
-      totalWinners: "56% Yes",
-      buttonText: "Predict Now"
+      volume: "24.4k",
+      participants: "300",
+      totalWinners: "56% Yes"
     },
     {
       id: "1",
       title: "ZCASH vs MONERO",
       titleKey: "markets.willZcashFlipMonero",
-      subtitle: "Which flips first?",
+      subtitleKey: "carouselSubtitles.zcashMonero",
       image: "/featured-markets/zcash_vs_monero.webp",
-      prizePool: "1.4k Volume",
-      topPrize: "18 Participants",
-      totalWinners: "56% Yes",
-      buttonText: "Predict Now"
+      volume: "1.4k",
+      participants: "18",
+      totalWinners: "56% Yes"
     }
   ];
 
@@ -179,7 +174,7 @@ export default function Home() {
                             {currentMarket.titleKey ? t(currentMarket.titleKey) : currentMarket.title}
                           </h3>
                           <p className="text-gray-300 text-sm">
-                            {currentMarket.subtitle}
+                            {currentMarket.subtitleKey ? t(currentMarket.subtitleKey) : ''}
                           </p>
                         </div>
                       </div>
@@ -188,7 +183,7 @@ export default function Home() {
                       <div className="flex items-center">
                         <button className="bg-black/80 hover:bg-black text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-2 border border-white/20 cursor-pointer">
                           <img src="/assets/bnb.png" alt="BNB" className="w-4 h-4" />
-                          Predict
+                          {t('stats.predict')}
                         </button>
                       </div>
                     </div>
@@ -271,10 +266,10 @@ export default function Home() {
                   {/* Option Buttons */}
                   <div className="flex gap-2 h-12">
                      <button className="flex-1 px-4 py-3 bg-gradient-to-r from-[#F3BA2F] to-[#E8A202] hover:from-[#E8A202] hover:to-[#D4941A] border-2 border-[#F3BA2F] rounded-lg cursor-pointer transition-all duration-150 flex justify-center items-center shadow-lg hover:scale-105">
-                       <span className="text-white text-sm font-bold">{market.options[0].text}</span>
+                       <span className="text-white text-sm font-bold">{getTranslatedOptionText(market.options[0].text, t)}</span>
                      </button>
                      <button className="flex-1 px-4 py-3 rounded-lg cursor-pointer transition-all duration-150 flex justify-center items-center shadow-lg hover:scale-105" style={{background: 'linear-gradient(to right, #6b7280, #4b5563)', border: '2px solid #6b7280'}}>
-                       <span className="text-white text-sm font-bold">{market.options[1].text}</span>
+                       <span className="text-white text-sm font-bold">{getTranslatedOptionText(market.options[1].text, t)}</span>
                      </button>
                   </div>
                 </div>

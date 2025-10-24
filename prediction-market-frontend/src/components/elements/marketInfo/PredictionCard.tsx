@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { MarketDataType } from "@/types/type";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 // Define types for the props
 interface PredictionCardProps {
@@ -28,6 +29,7 @@ const PredictionCard: React.FC<PredictionCardProps> = ({
   const { markets, formatMarketData } = useGlobalContext(); // Use Global Context
   const wallet = useAnchorWallet()
   const router = useRouter()
+  const { t } = useTranslation();
   const [counter, setCounter] = useState("7d : 6h : 21m : 46s");
   useEffect(() => {
     const interval = setInterval(() => {
@@ -115,7 +117,7 @@ const PredictionCard: React.FC<PredictionCardProps> = ({
             className="flex-1 px-4 py-3 bg-gradient-to-r from-[#F3BA2F] to-[#E8A202] hover:from-[#E8A202] hover:to-[#D4941A] border-2 border-[#F3BA2F] rounded-lg cursor-pointer transition-all duration-200 flex justify-center items-center shadow-lg"
             onClick={() => onVote(true, markets[index].tokenA)}
           >
-            <span className="text-white text-sm font-bold">YES</span>
+            <span className="text-white text-sm font-bold">{t('common.yes').toUpperCase()}</span>
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -123,7 +125,7 @@ const PredictionCard: React.FC<PredictionCardProps> = ({
             className="flex-1 px-4 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 border-2 border-red-600 rounded-lg cursor-pointer transition-all duration-200 flex justify-center items-center shadow-lg"
             onClick={() => onVote(false, markets[index].tokenB)}
           >
-            <span className="text-white text-sm font-bold">NO</span>
+            <span className="text-white text-sm font-bold">{t('common.no').toUpperCase()}</span>
           </motion.button>
         </div>
       </div>
