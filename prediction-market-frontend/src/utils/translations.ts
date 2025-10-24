@@ -21,18 +21,15 @@ export const getTranslatedOptionText = (optionText: string, t: (key: string) => 
   const optionMap: Record<string, string> = {
     'Yes': t('common.yes'),
     'No': t('common.no'),
-    'More Green': t('marketOptions.moreGreen'),
-    'More Red': t('marketOptions.moreRed'),
-    'Gold': t('marketOptions.gold'),
-    'ETH': t('marketOptions.eth'),
-    'Fear': t('marketOptions.fear'),
-    'Greed': t('marketOptions.greed'),
-    'Fury': t('marketOptions.fury'),
-    'Usyk': t('marketOptions.usyk'),
+    'More Green': '更多绿色',
+    'More Red': '更多红色',
+    'Gold': '黄金',
+    'ETH': 'ETH',
+    'Fear': '恐惧',
+    'Greed': '贪婪',
+    'Fury': '富里',
+    'Usyk': '乌西克',
   };
-  
-  // Debug logging
-  console.log('Translating option:', optionText, 'Result:', optionMap[optionText] || optionText);
   
   return optionMap[optionText] || optionText;
 };
