@@ -24,7 +24,7 @@ const topicsList = [
     label: "Sports", 
     href: "/topics/sports", 
     icon: "Sports", 
-    marketCount: 6,
+    marketCount: 8,
     image: "/assets/SPORTS.png",
     translationKey: "topics.sports"
   },
@@ -32,7 +32,7 @@ const topicsList = [
     label: "Politics", 
     href: "/topics/politics", 
     icon: "Politics", 
-    marketCount: 12,
+    marketCount: 9,
     image: "/assets/POLITICS.png",
     translationKey: "topics.politics"
   },
@@ -40,7 +40,7 @@ const topicsList = [
     label: "Economy", 
     href: "/topics/economy", 
     icon: "Economy", 
-    marketCount: 7,
+    marketCount: 8,
     image: "/assets/ECONOMICS.png",
     translationKey: "topics.economy"
   },
@@ -48,7 +48,7 @@ const topicsList = [
     label: "Gaming", 
     href: "/topics/gaming", 
     icon: "Gaming", 
-    marketCount: 11,
+    marketCount: 4,
     image: "/assets/GAMING.png",
     translationKey: "topics.gaming"
   },
@@ -56,7 +56,7 @@ const topicsList = [
     label: "Culture", 
     href: "/topics/culture", 
     icon: "Culture", 
-    marketCount: 12,
+    marketCount: 4,
     image: "/assets/IGGY-AZALEA.png",
     translationKey: "topics.culture"
   },

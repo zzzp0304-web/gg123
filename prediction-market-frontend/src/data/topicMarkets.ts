@@ -421,7 +421,7 @@ In the event of cancelation, participants may claim their stakes at the market v
       id: "p5",
       title: "China–Taiwan status change by end of 2025?",
       titleKey: "markets.chinaTaiwanStatus",
-      image: "/carousel_11.png",
+      image: "/featured-markets/China Taiwan Flags Keystone.png",
       category: "politics",
       options: [
         { text: "Yes", percentage: 15 },
@@ -435,7 +435,7 @@ In the event of cancelation, participants may claim their stakes at the market v
       id: "p6",
       title: "China passes major national security law in 2025?",
       titleKey: "markets.chinaNationalSecurityLaw",
-      image: "/carousel_12.png",
+      image: "/featured-markets/https___d1e00ek4ebabms.cloudfront.net_production_6046c402-403a-4dd7-924a-222a9bd198b3.avif",
       category: "politics",
       options: [
         { text: "Yes", percentage: 78 },
@@ -449,7 +449,7 @@ In the event of cancelation, participants may claim their stakes at the market v
       id: "p7",
       title: "US issues executive order on NATO by end of 2025?",
       titleKey: "markets.usNatoExecutiveOrder",
-      image: "/carousel_13.png",
+      image: "/featured-markets/jpg.jpg",
       category: "politics",
       options: [
         { text: "Yes", percentage: 42 },
@@ -463,7 +463,7 @@ In the event of cancelation, participants may claim their stakes at the market v
       id: "p8",
       title: "US–China sign new bilateral treaty in 2025?",
       titleKey: "markets.usChinaBilateralTreaty",
-      image: "/carousel_21.png",
+      image: "/featured-markets/us-china-treaty.jpg",
       category: "politics",
       options: [
         { text: "Yes", percentage: 23 },
@@ -477,7 +477,7 @@ In the event of cancelation, participants may claim their stakes at the market v
       id: "p9",
       title: "UK opens parliamentary inquiry on foreign interference in 2025?",
       titleKey: "markets.ukForeignInterferenceInquiry",
-      image: "/carousel_22.png",
+      image: "/featured-markets/hoc-chamber-2.jpg",
       category: "politics",
       options: [
         { text: "Yes", percentage: 67 },
@@ -488,24 +488,10 @@ In the event of cancelation, participants may claim their stakes at the market v
       endDate: "Dec 31"
     },
     {
-      id: "p10",
-      title: "Xi Jinping visits the US in 2025?",
-      titleKey: "markets.xiVisitUs2025",
-      image: "/carousel_23.png",
-      category: "politics",
-      options: [
-        { text: "Yes", percentage: 34 },
-        { text: "No", percentage: 66 }
-      ],
-      participants: 876,
-      volume: "$54.2k",
-      endDate: "Dec 31"
-    },
-    {
       id: "p11",
       title: "New UN Security Council resolution on Ukraine in 2025?",
       titleKey: "markets.unUkraineResolution",
-      image: "/carousel_11.png",
+      image: "/featured-markets/UN_SecurityCouncil_BG (1).webp",
       category: "politics",
       options: [
         { text: "Yes", percentage: 78 },
@@ -519,7 +505,7 @@ In the event of cancelation, participants may claim their stakes at the market v
       id: "p12",
       title: "China announces new military base abroad in 2025?",
       titleKey: "markets.chinaMilitaryBaseAbroad",
-      image: "/carousel_12.png",
+      image: "/featured-markets/0c91cf56-db11-4b8a-a52e-59553a8e18fb_cx0_cy3_cw0_w1080_h608_s.avif",
       category: "politics",
       options: [
         { text: "Yes", percentage: 45 },
