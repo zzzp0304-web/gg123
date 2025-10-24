@@ -57,7 +57,9 @@ export default function Referral() {
         wallet: publicKey.toBase58(),
         referralCode: ref? ref : ""
       });
-      setReferral(`http://localhost:3000/referral?ref=${res.data.code}`);
+      // Demo mode - generate demo referral code
+      const demoCode = "DEMO" + Math.random().toString(36).substr(2, 6).toUpperCase();
+      setReferral(`http://localhost:3000/referral?ref=${demoCode}`);
       console.log("res.data.code.referrals", res.data.referrals);
       
       setReferrals(res.data.referrals);

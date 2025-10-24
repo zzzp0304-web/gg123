@@ -327,30 +327,11 @@ export default function Propose() {
         data.question = data.range? `Will ${elipsKey(data.feedName)} reach a market cap of $ ${data.value} by ${data.date}?` : `Will ${elipsKey(data.feedName)} reach a per token price of $ ${data.value} by ${data.date}?`
       }
 
-      const res = await axios.post("http://localhost:8080/api/market/create", { data, isChecked });
-      const market_id = res.data.result;
-
-      const cluster = process.env.CLUSTER === "Mainnet" ? "Mainnet" : "Devnet";
-      const feed_result = await customizeFeed({ url: data.dataLink, task, name: data.feedName, cluster, wallet: anchorWallet });
-      console.log("feed_result:", feed_result);
-
-      const create_result = await createMarket({
-        marketID: market_id,
-        date: data.date,
-        value: data.value,
-        feed: feed_result.feedKeypair!,
-        wallet,
-        anchorWallet
-      });
-
-      console.log("create result:", create_result);
-
-      const update_res = await axios.post("http://localhost:8080/api/market/add", { data: { ...create_result, id: market_id } });
-
-      if (update_res.status === 200) {
-        infoAlert("Market created successfully!");
-        router.push(`/fund`);
-      }
+      // Demo mode - simulate market creation
+      const market_id = "demo-market-" + Date.now();
+      
+      infoAlert("Market created successfully! (Demo Mode)");
+      router.push(`/fund`);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         // Error message

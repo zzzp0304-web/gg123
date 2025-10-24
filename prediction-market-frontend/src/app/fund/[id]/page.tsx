@@ -55,12 +55,9 @@ export default function FundDetail() {
 
       console.log("status:", active);
 
-      const result = await axios.post("http://localhost:8080/api/market/liquidity", { market_id: market._id, amount: fundAmount, investor: wallet.publicKey?.toBase58(), active });
-
-      if (result.status === 200) {
-        infoAlert("Funed successfully!");
-        router.replace(`/fund`);
-      }
+      // Demo mode - simulate funding
+      infoAlert("Funded successfully! (Demo Mode)");
+      router.replace(`/fund`);
     } catch (error) {
       console.error('Unexpected error:', error);
       errorAlert("Failed deploying fund!")

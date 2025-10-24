@@ -212,14 +212,38 @@ const Market: React.FC<MarketProps> = ({ showRecentActivity = true, onToggleRece
           headers: new axios.AxiosHeaders()
         }
       };
-      if (pathname === "/fund") {
-        marketData = await axios.get(`http://localhost:8080/api/market/get?page=${currentPage}&limit=10&marketStatus=PENDING&marketField=${selectedCategory === "Sports" ? 1 : 0}`);
-      } else if (pathname === "/") {
-        marketData = await axios.get(`http://localhost:8080/api/market/get?page=${currentPage}&limit=10&marketStatus=ACTIVE&marketField=${selectedCategory === "Sports" ? 1 : 0}`);
-      }
+      // Demo mode - use static data instead of backend calls
+      const demoMarkets = [
+        {
+          _id: "demo-1",
+          title: "Will Bitcoin hit $100k by end of 2024?",
+          description: "Bitcoin price prediction",
+          date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+          playerACount: 150,
+          playerBCount: 100,
+          creator: "demo-creator",
+          market: "demo-market",
+          marketField: 0,
+          task: "price",
+          image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png"
+        },
+        {
+          _id: "demo-2", 
+          title: "Will Ethereum reach $5,000?",
+          description: "Ethereum price prediction",
+          date: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(),
+          playerACount: 200,
+          playerBCount: 80,
+          creator: "demo-creator",
+          market: "demo-market",
+          marketField: 0,
+          task: "price",
+          image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png"
+        }
+      ];
 
-      setTotal(marketData.data.total);
-      formatMarketData(marketData.data.data);
+      setTotal(demoMarkets.length);
+      formatMarketData(demoMarkets);
     })()
   }, [pathname, selectedCategory, currentPage])
 
