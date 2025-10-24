@@ -23,10 +23,9 @@ export const metadata: Metadata = {
   description: "预见市场 - 基于BNB的预测交易平台，让您预测未来",
   keywords: "预测市场, BNB, 区块链, 交易, 预见, Yujian Markets",
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.png", sizes: "32x32", type: "image/png" }
-    ],
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "预见 - Yujian Markets",
