@@ -37,12 +37,14 @@ const SidebarNavItem: FC<SidebarNavItemProps> = ({
             />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-[#F3BA2F]/20 to-[#F3BA2F]/10 flex items-center justify-center">
-              <Icon
-                name={icon}
-                size={isCollapsed ? 16 : 22}
-                color="#F3BA2F"
-                className="transition-all duration-150 ease-in-out group-hover:scale-110"
-              />
+              {icon && (
+                <Icon
+                  name={icon}
+                  size={isCollapsed ? 16 : 22}
+                  color="#F3BA2F"
+                  className="transition-all duration-150 ease-in-out group-hover:scale-110"
+                />
+              )}
             </div>
           )}
         </div>
@@ -89,12 +91,14 @@ const SidebarNavItem: FC<SidebarNavItemProps> = ({
         inline-flex items-center gap-3 cursor-pointer group relative`}
       title={isCollapsed ? label : undefined}
     >
-      <Icon
-        name={icon}
-        size={22}
-        color={isActive ? "#F3BA2F" : "#9CA3AF"}
-        className="transition-all duration-150 ease-in-out group-hover:scale-110"
-      />
+      {icon && (
+        <Icon
+          name={icon}
+          size={22}
+          color={isActive ? "#F3BA2F" : "#9CA3AF"}
+          className="transition-all duration-150 ease-in-out group-hover:scale-110"
+        />
+      )}
 
       {/* Hide label when collapsed */}
       {!isCollapsed && (

@@ -1,10 +1,12 @@
+import { IconName } from "@/components/elements/Icons/Icons";
+
 export interface SidebarNavItemProps {
   label: string;
   href: string;
   isActive: boolean;
   onClick?: () => void;
   isCollapsed: boolean;
-  icon?: string;
+  icon?: IconName;
   count?: string;
   image?: string;
   isTopic?: boolean;
