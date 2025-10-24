@@ -23,9 +23,9 @@ const HeaderSideBar = ({ isCollapsed, setIsCollapsed, isCancel, setIsCanceled }:
 
   // Auto-collapse on smaller screens
   useEffect(() => {
-    if (width < 1200 && !isCollapsed) {
+    if (width && width < 1200 && !isCollapsed) {
       setIsCollapsed(true);
-    } else if (width >= 1200 && isCollapsed) {
+    } else if (width && width >= 1200 && isCollapsed) {
       // Optionally auto-expand on larger screens
       // setIsCollapsed(false);
     }

@@ -2,7 +2,7 @@
 echo Starting 预见市场 (Yujian Markets) Development Environment...
 echo.
 
-cd /d "C:\Users\peter\OneDrive\Desktop\zz\Solana-Prediction-Market"
+cd /d "C:\Users\peter\OneDrive\Desktop\zzzzzz\bnb"
 
 echo Installing dependencies if needed...
 cd prediction-market-frontend

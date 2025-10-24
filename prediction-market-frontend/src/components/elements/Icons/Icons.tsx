@@ -432,7 +432,7 @@ export const Icons = {
       />
     </svg>
   ),
-  yes: ({ size = 21 }: IconProps) => (
+  yes: ({ size = 21, color = "#10B981" }: IconProps) => (
     <svg
       width={size}
       height={size-1}
@@ -442,7 +442,7 @@ export const Icons = {
     >
       <path
         d="M17.5417 5.83331L13.0494 11.224C11.2693 13.3601 10.3793 14.4282 9.20834 14.4282C8.03741 14.4282 7.14735 13.3601 5.36724 11.224L4.20834 9.83331"
-        stroke="#3FD145"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
       />
@@ -564,6 +564,64 @@ export const Icons = {
         stroke={color}
         strokeWidth="2"
         fill="none"
+      />
+    </svg>
+  ),
+  "chevron-up": ({ size = 24, color = "#9CA3AF" }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M18 15L12 9L6 15"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  "chevron-down": ({ size = 24, color = "#9CA3AF" }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 9L12 15L18 9"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  no: ({ size = 24, color = "#EF4444" }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M18 6L6 18"
+        stroke={color}
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6 6L18 18"
+        stroke={color}
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   ),
