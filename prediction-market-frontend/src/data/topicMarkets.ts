@@ -2,7 +2,7 @@ import { createSlug } from '../utils/slug';
 
 export interface Market {
   id: string;
-  slug: string;
+  slug?: string;
   title: string;
   titleKey?: string; // Translation key for title
   image: string;
@@ -726,7 +726,9 @@ In the event of cancelation, participants may claim their stakes at the market v
   ]
 };
 
-export const getAllMarkets = (): Market[] => {
+export type MarketWithSlug = Market & { slug: string };
+
+export const getAllMarkets = (): MarketWithSlug[] => {
   const allMarkets = Object.values(topicMarkets).flat();
   
   // Auto-generate slugs for markets that don't have them
@@ -736,7 +738,7 @@ export const getAllMarkets = (): Market[] => {
   }));
 };
 
-export const getMarketsByCategory = (category: string): Market[] => {
+export const getMarketsByCategory = (category: string): MarketWithSlug[] => {
   const markets = topicMarkets[category.toLowerCase()] || [];
   
   // Auto-generate slugs for markets that don't have them
