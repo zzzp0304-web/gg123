@@ -31,5 +31,8 @@ export const getTranslatedOptionText = (optionText: string, t: (key: string) => 
     'Usyk': t('marketOptions.usyk'),
   };
   
+  // Debug logging
+  console.log('Translating option:', optionText, 'Result:', optionMap[optionText] || optionText);
+  
   return optionMap[optionText] || optionText;
 };
