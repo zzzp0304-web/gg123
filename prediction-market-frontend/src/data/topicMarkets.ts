@@ -128,6 +128,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "6",
       title: "Gold vs ETH - Which hits $5K first?",
+      titleKey: "markets.goldVsEth",
       image: "/assets/ethereum-coin-eth-digital-cryptocurrency_258219-297.jpg",
       category: "crypto",
       options: [
@@ -141,6 +142,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "7",
       title: "Mando vs KBM on BTC's next move: 120K or 100K?",
+      titleKey: "markets.bitcoinNext120kOr100k",
       image: "/featured-markets/3d-illustration-bitcoin-over-red-600nw-709680643.webp",
       category: "crypto",
       options: [
@@ -154,6 +156,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "8",
       title: "Fear or Greed?",
+      titleKey: "markets.fearOrGreed",
       image: "/featured-markets/iStock-1387454800-scaled-e1673289014746.jpg",
       category: "crypto",
       options: [
@@ -189,6 +192,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "9",
       title: "Will PNKSTR hit $400M during October?",
+      titleKey: "markets.pnkstrHit400m",
       image: "/featured-markets/1LnDWcIhmJ_Hmtqw.jpg",
       category: "crypto",
       options: [
@@ -202,6 +206,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "10",
       title: "Stablecoin market cap to pass $360B before February?",
+      titleKey: "markets.stablecoinMarketCap360b",
       image: "/featured-markets/images.jpg",
       category: "crypto",
       options: [
@@ -215,6 +220,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "11",
       title: "Will MetaMask launch its token before November?",
+      titleKey: "markets.metamaskTokenNovember",
       image: "/featured-markets/35d448869a91486ba8b872ff98647195.png",
       category: "crypto",
       options: [
@@ -228,6 +234,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "12",
       title: "Will Polymarket announce a token this year?",
+      titleKey: "markets.polymarketToken2025",
       image: "/featured-markets/1756988619-polymarket-generica-03.webp",
       category: "crypto",
       options: [
@@ -241,6 +248,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "13",
       title: "New BNB ATH by end of year?",
+      titleKey: "markets.newBnbAth",
       image: "/featured-markets/bnb.jpg",
       category: "crypto",
       options: [
@@ -254,6 +262,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "14",
       title: "Will Strategy (MSTR) sell any BTC by end of 2025?",
+      titleKey: "markets.mstrSellBtc",
       image: "/featured-markets/913e5664d265cf37455be9ef109cbd76.avif",
       category: "crypto",
       options: [
@@ -269,6 +278,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s1",
       title: "Will the Lakers win the NBA Championship 2025?",
+      titleKey: "markets.lakersNbaChampionship",
       image: "/featured-markets/eb0d58b5106cd47839be81daf40bfeab14868727fc69b0777ea6e70705d4d32b.webp",
       category: "sports",
       options: [
@@ -282,6 +292,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s2",
       title: "Messi to score 30+ goals this season?",
+      titleKey: "markets.messiGoals30Plus",
       image: "/featured-markets/dims.apnews.jpg",
       category: "sports",
       options: [
@@ -295,6 +306,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s3",
       title: "Will Real Madrid win the 25-26 UEFA Champions League?",
+      titleKey: "markets.realMadridChampionsLeague2526",
       image: "/featured-markets/madrid.avif",
       category: "sports",
       options: [
@@ -308,6 +320,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s4",
       title: "Will Manchester City win the Premier League?",
+      titleKey: "markets.manCityPremierLeague",
       image: "/featured-markets/LRNAAO7EBVOZBF6YLY33C53SPU.jpg",
       category: "sports",
       options: [
@@ -321,6 +334,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s5",
       title: "Tyson Fury vs Usyk rematch - Who wins?",
+      titleKey: "markets.furyVsUsyk",
       image: "/featured-markets/GettyImages-2153594708-scaled.jpg",
       category: "sports",
       options: [
@@ -334,6 +348,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s6",
       title: "Will Lewis Hamilton win another F1 race in 2025?",
+      titleKey: "markets.hamiltonF1Race2025",
       image: "/featured-markets/lewis-hamilton-ferrari.jpg",
       category: "sports",
       options: [
@@ -347,6 +362,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s7",
       title: "Will Shanghai Port F.C. win the 2025 Chinese Super League?",
+      titleKey: "markets.shanghaiPortSuperLeague",
       image: "/featured-markets/Screenshot 2025-10-22 222801.png",
       category: "sports",
       options: [
@@ -360,6 +376,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "s8",
       title: "Will Ohio State go back to back in the College Football Playoff?",
+      titleKey: "markets.ohioStateCollegeFootball",
       image: "/featured-markets/1920_championshippic.jpg",
       category: "sports",
       options: [
@@ -375,6 +392,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p1",
       title: "Will Donald Trump meet with Xi Jinping by the end of the year?",
+      titleKey: "markets.trumpMeetXi",
       image: "/featured-markets/china.jpg",
       category: "politics",
       options: [
@@ -388,6 +406,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p2",
       title: "Will there be a new EU member state by end of 2025?",
+      titleKey: "markets.newEuMember2025",
       image: "/featured-markets/istockphoto-480985277-612x612.jpg",
       category: "politics",
       options: [
@@ -401,6 +420,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p5",
       title: "China–Taiwan status change by end of 2025?",
+      titleKey: "markets.chinaTaiwanStatus",
       image: "/carousel_11.png",
       category: "politics",
       options: [
@@ -414,6 +434,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p6",
       title: "China passes major national security law in 2025?",
+      titleKey: "markets.chinaNationalSecurityLaw",
       image: "/carousel_12.png",
       category: "politics",
       options: [
@@ -427,6 +448,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p7",
       title: "US issues executive order on NATO by end of 2025?",
+      titleKey: "markets.usNatoExecutiveOrder",
       image: "/carousel_13.png",
       category: "politics",
       options: [
@@ -440,6 +462,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p8",
       title: "US–China sign new bilateral treaty in 2025?",
+      titleKey: "markets.usChinaBilateralTreaty",
       image: "/carousel_21.png",
       category: "politics",
       options: [
@@ -453,6 +476,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p9",
       title: "UK opens parliamentary inquiry on foreign interference in 2025?",
+      titleKey: "markets.ukForeignInterferenceInquiry",
       image: "/carousel_22.png",
       category: "politics",
       options: [
@@ -466,6 +490,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p10",
       title: "Xi Jinping visits the US in 2025?",
+      titleKey: "markets.xiVisitUs2025",
       image: "/carousel_23.png",
       category: "politics",
       options: [
@@ -479,6 +504,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p11",
       title: "New UN Security Council resolution on Ukraine in 2025?",
+      titleKey: "markets.unUkraineResolution",
       image: "/carousel_11.png",
       category: "politics",
       options: [
@@ -492,6 +518,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "p12",
       title: "China announces new military base abroad in 2025?",
+      titleKey: "markets.chinaMilitaryBaseAbroad",
       image: "/carousel_12.png",
       category: "politics",
       options: [
@@ -507,7 +534,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e1",
       title: "Will US inflation drop below 2% in 2025?",
-      titleKey: "markets.inflationTarget2Percent",
+      titleKey: "markets.usInflationBelow2",
       image: "/featured-markets/Feds-2-percent-inflation-target.webp",
       category: "economy",
       options: [
@@ -521,7 +548,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e2",
       title: "Fed to cut rates 3+ times in 2025?",
-      titleKey: "markets.fedRateCut2025",
+      titleKey: "markets.fedRateCuts3Plus",
       image: "/featured-markets/fed.jpg",
       category: "economy",
       options: [
@@ -535,6 +562,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e3",
       title: "Will Tesla stock hit $500 before March 2025?",
+      titleKey: "markets.teslaStock500",
       image: "/featured-markets/tesla_tsla_stock_247199dfbd.jpg",
       category: "economy",
       options: [
@@ -548,6 +576,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e4",
       title: "S&P 500 to reach 7000 before end of 2025?",
+      titleKey: "markets.sp5007000",
       image: "/featured-markets/sandp.jpg",
       category: "economy",
       options: [
@@ -561,6 +590,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e5",
       title: "Will there be a US recession in 2025?",
+      titleKey: "markets.usRecession2025",
       image: "/featured-markets/will-there-be-a-recession-in-2025.jpg",
       category: "economy",
       options: [
@@ -574,6 +604,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e6",
       title: "BYD outsells Tesla in China EV market in 2025?",
+      titleKey: "markets.bydOutsellTesla",
       image: "/featured-markets/BYD_VS_TESLA-1024x576.jpg",
       category: "economy",
       options: [
@@ -587,6 +618,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e7",
       title: "Alibaba regains #1 e-commerce market share in China by end of 2025?",
+      titleKey: "markets.alibabaRegainTop",
       image: "/featured-markets/122123979.avif",
       category: "economy",
       options: [
@@ -600,6 +632,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "e8",
       title: "TikTok (Douyin) parent ByteDance surpasses Tencent in domestic ad revenue in 2025?",
+      titleKey: "markets.bytedanceSurpassTencent",
       image: "/featured-markets/TencentByteDanceFI.jpg",
       category: "economy",
       options: [
@@ -673,7 +706,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "c2",
       title: "Will Barbie 2 be announced in 2025?",
-      titleKey: "markets.barbieBoxOffice",
+      titleKey: "markets.barbie2Announced",
       image: "/featured-markets/barbie.jpg",
       category: "culture",
       options: [
@@ -687,6 +720,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "c4",
       title: "Will a meme dance challenge surpass 10 billion plays on Douyin by the end of 2025?",
+      titleKey: "markets.douyinDanceChallenge10b",
       image: "/featured-markets/231201122258-subject-three-dance-china.jpg",
       category: "culture",
       options: [
@@ -700,6 +734,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "c5",
       title: "Will a new Chinese collectible toy surpass Labubu in search volume in 2025?",
+      titleKey: "markets.chineseToyLabubu",
       image: "/featured-markets/GettyImages-2220163705-e1750416224401.webp",
       category: "culture",
       options: [
@@ -713,6 +748,7 @@ In the event of cancelation, participants may claim their stakes at the market v
     {
       id: "c6",
       title: "Will MrBeast break all-time YouTube video record in 2025?",
+      titleKey: "markets.mrBeastYoutubeRecord",
       image: "/featured-markets/mr_beast_003 PC self.avif",
       category: "culture",
       options: [
