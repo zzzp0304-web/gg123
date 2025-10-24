@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { getMarketsByCategory } from "@/data/topicMarkets";
 import { useState } from "react";
 import Link from "next/link";
+import { getTranslatedOptionText } from "@/utils/translations";
 
 export default function TopicPage() {
   const params = useParams();
@@ -134,7 +135,7 @@ export default function TopicPage() {
                   {market.options.map((option, idx) => (
                     <div key={idx} className="flex items-center justify-between">
                       <button className="flex-1 bg-[#2A2A2A] hover:bg-[#F3BA2F] hover:text-black text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors mr-2">
-                        {option.text}
+                        {getTranslatedOptionText(option.text, t)}
                       </button>
                       <span className="text-[#F3BA2F] text-xs font-bold min-w-[45px] text-right">
                         {option.percentage}%
