@@ -281,5 +281,15 @@
     "memeDance10Billion": "2025年底前会有表情包舞蹈挑战在抖音上突破100亿播放量吗？",
     "chineseToySurpassLabubu": "2025年会有新的中国收藏玩具在搜索量上超越Labubu吗？",
     "mrBeastYouTubeRecord": "MrBeast会在2025年打破YouTube视频记录吗？"
+  },
+  "marketOptions": {
+    "moreGreen": "更多绿色",
+    "moreRed": "更多红色",
+    "gold": "黄金",
+    "eth": "ETH",
+    "fear": "恐惧",
+    "greed": "贪婪",
+    "fury": "富里",
+    "usyk": "乌西克"
   }
 }

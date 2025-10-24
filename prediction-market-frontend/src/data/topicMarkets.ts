@@ -132,6 +132,7 @@ export const topicMarkets: Record<string, Market[]> = {
     {
       id: "6",
       title: "Gold vs ETH - Which hits $5K first?",
+      titleKey: "markets.goldVsEth5k",
       image: "/assets/ethereum-coin-eth-digital-cryptocurrency_258219-297.jpg",
       category: "crypto",
       options: [
