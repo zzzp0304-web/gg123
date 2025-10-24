@@ -182,7 +182,9 @@ export default function MarketDetailPage() {
             {market.description && (
               <div className="bg-[#1A1A1A] rounded-xl p-6 border border-[#2A2A2A]">
                 <h2 className="text-lg font-bold text-white mb-3">{t("market.aboutThisMarket")}</h2>
-                <p className="text-[#9CA3AF] leading-relaxed">{market.description}</p>
+                <p className="text-[#9CA3AF] leading-relaxed">
+                  {market.descriptionKey ? t(market.descriptionKey) : market.description}
+                </p>
               </div>
             )}
 
@@ -203,7 +205,7 @@ export default function MarketDetailPage() {
                 {showRules && (
                   <div className="prose prose-invert max-w-none">
                     <div className="text-[#9CA3AF] leading-relaxed whitespace-pre-line">
-                      {market.rules}
+                      {market.rulesKey ? t(market.rulesKey) : market.rules}
                     </div>
                   </div>
                 )}

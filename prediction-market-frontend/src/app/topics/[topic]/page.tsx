@@ -127,7 +127,7 @@ export default function TopicPage() {
               
               <div className="p-4">
                 <h3 className="text-white text-sm font-medium mb-3 line-clamp-2 min-h-[40px]">
-                  {market.title}
+                  {market.titleKey ? t(market.titleKey) : market.title}
                 </h3>
                 
                 <div className="space-y-2 mb-3">

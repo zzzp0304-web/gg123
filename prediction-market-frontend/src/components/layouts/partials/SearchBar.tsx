@@ -20,13 +20,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
         aria-label="Search"
         className="flex-1 bg-transparent text-[#838587] text-base font-medium font-satoshi leading-normal outline-none placeholder-[#838587]"
       />
-      {showShortcut && (
-        <div className="px-2 py-1 bg-[#111111] rounded-lg outline outline-1 outline-offset-[-1px] outline-[#313131] flex justify-center items-center gap-2.5 select-none">
-          <span className="text-[#838587] text-sm font-medium font-satoshi leading-none">
-            ⌘V
-          </span>
-        </div>
-      )}
     </div>
   );
 };
