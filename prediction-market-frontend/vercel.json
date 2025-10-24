@@ -1,5 +1,5 @@
 {
-  "buildCommand": "next build --no-lint",
+  "buildCommand": "SKIP_ENV_VALIDATION=true next build",
   "outputDirectory": ".next",
   "framework": "nextjs",
   "regions": ["iad1"]
