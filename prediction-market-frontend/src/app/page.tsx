@@ -173,9 +173,6 @@ export default function Home() {
                           <h3 className="text-white font-bold text-lg">
                             {currentMarket.titleKey ? t(currentMarket.titleKey) : currentMarket.title}
                           </h3>
-                          <p className="text-gray-300 text-sm">
-                            {currentMarket.subtitleKey ? t(currentMarket.subtitleKey) : ''}
-                          </p>
                         </div>
                       </div>
                       
@@ -183,7 +180,7 @@ export default function Home() {
                       <div className="flex items-center">
                         <button className="bg-black/80 hover:bg-black text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-2 border border-white/20 cursor-pointer">
                           <img src="/assets/bnb.png" alt="BNB" className="w-4 h-4" />
-                          {t('stats.predict')}
+                          {t('market.placeBet')}
                         </button>
                       </div>
                     </div>

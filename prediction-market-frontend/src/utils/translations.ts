@@ -19,8 +19,8 @@ export const getTranslatedMarketTitle = (market: Market, t: (key: string) => str
 // Function to translate option text
 export const getTranslatedOptionText = (optionText: string, t: (key: string) => string) => {
   const optionMap: Record<string, string> = {
-    'Yes': t('marketOptions.yes'),
-    'No': t('marketOptions.no'),
+    'Yes': t('common.yes'),
+    'No': t('common.no'),
     'More Green': t('marketOptions.moreGreen'),
     'More Red': t('marketOptions.moreRed'),
     'Gold': t('marketOptions.gold'),
