@@ -625,6 +625,95 @@ export const Icons = {
       />
     </svg>
   ),
+  Politics: ({ size = 24, color = "#9CA3AF" }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 21h18M5 21V7l5-4v18m7 0V10l5-3v14m-7 0V6"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  Economy: ({ size = 24, color = "#9CA3AF" }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 2v20m0-20a10 10 0 0 1 10 10m-10-10a10 10 0 0 0-10 10m10 10a10 10 0 0 1-10-10m10 10a10 10 0 0 0 10-10M2.5 12h19"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 2c2.5 0 4.5 4.5 4.5 10s-2 10-4.5 10"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 2c-2.5 0-4.5 4.5-4.5 10s2 10 4.5 10"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  Gaming: ({ size = 24, color = "#9CA3AF" }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 11h4m-2-2v4m8-1h.01M18 10h.01M8 21h8a6 6 0 0 0 6-6V9a6 6 0 0 0-6-6H8a6 6 0 0 0-6 6v6a6 6 0 0 0 6 6z"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  Culture: ({ size = 24, color = "#9CA3AF" }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 8c0-3.5 2-6 2-6s2 2.5 2 6-2 6-2 6-2-2.5-2-6zm0 0c0 3.5-2 6-2 6s-2-2.5-2-6 2-6 2-6 2 2.5 2 6z"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 14v8m-4-6l4 2 4-2"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
 } as const;
 
 // TypeScript utility to get icon names
