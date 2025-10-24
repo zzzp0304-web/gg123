@@ -28,9 +28,9 @@ export default function RootLayout({
     <html lang="zh">
       <Head>
         <title>预见 - Yujian Markets</title>
-        <link rel="icon" href="/favicon.png?v=2" />
-        <link rel="shortcut icon" href="/favicon.png?v=2" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+        <link rel="icon" href="/favicon.png?v=3" />
+        <link rel="shortcut icon" href="/favicon.png?v=3" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
         <meta name="description" content="预见市场 - 基于BNB的预测交易平台，让您预测未来" />
         <meta name="keywords" content="预测市场, BNB, 区块链, 交易, 预见, Yujian Markets" />
         <meta property="og:title" content="预见 - Yujian Markets" />
