@@ -212,5 +212,42 @@
     "amount": "Amount",
     "price": "Price",
     "value": "Value"
+  },
+  "marketOptions": {
+    "yes": "Yes",
+    "no": "No",
+    "moreGreen": "More Green",
+    "moreRed": "More Red",
+    "gold": "Gold",
+    "eth": "ETH",
+    "fear": "Fear",
+    "greed": "Greed",
+    "fury": "Fury",
+    "usyk": "Usyk"
+  },
+  "carouselSubtitles": {
+    "gta6": "Will it release in 2025?",
+    "lolWorlds": "T1 to win again?",
+    "realMadrid": "Will they win Champions League?",
+    "barbie": "Will it break box office records?",
+    "zcashMonero": "Which flips first?"
+  },
+  "stats": {
+    "volume": "Volume",
+    "participants": "Participants",
+    "timeLeft": "Time Left",
+    "yesPercent": "Yes %",
+    "predict": "Predict",
+    "predictNow": "Predict Now"
+  },
+  "searchFilters": {
+    "volume": "Volume",
+    "expiryTime": "Expiry Time",
+    "yesProbability": "Yes Probability",
+    "noProbability": "No Probability",
+    "min": "Min",
+    "max": "Max",
+    "start": "Start",
+    "end": "End"
   }
 }

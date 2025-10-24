@@ -5,13 +5,6 @@ import SearchInputItem from "./marketInfo/SearchInputItem";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 
-const searchInputs = [
-  { title: "Volume", minPlaceholder: "Min", maxPlaceholder: "Max" },
-  { title: "Expiry Time", minPlaceholder: "Start", maxPlaceholder: "End" },
-  { title: "Yes Probability", minPlaceholder: "Min", maxPlaceholder: "Max" },
-  { title: "No Probability", minPlaceholder: "Min", maxPlaceholder: "Max" },
-];
-
 type Category = {
   name: string;
   active: boolean;
@@ -38,6 +31,13 @@ const Navbar: React.FC<NavbarProps> = ({
   const filterRef = useRef<HTMLDivElement | null>(null);
   const searchPadRef = useRef<HTMLDivElement | null>(null);
   const { t } = useTranslation();
+
+  const searchInputs = [
+    { title: t('searchFilters.volume'), minPlaceholder: t('searchFilters.min'), maxPlaceholder: t('searchFilters.max') },
+    { title: t('searchFilters.expiryTime'), minPlaceholder: t('searchFilters.start'), maxPlaceholder: t('searchFilters.end') },
+    { title: t('searchFilters.yesProbability'), minPlaceholder: t('searchFilters.min'), maxPlaceholder: t('searchFilters.max') },
+    { title: t('searchFilters.noProbability'), minPlaceholder: t('searchFilters.min'), maxPlaceholder: t('searchFilters.max') },
+  ];
 
   const handleCategorySelect = (category: string) => {
     setActiveCategory(category);

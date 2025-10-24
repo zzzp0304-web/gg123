@@ -241,5 +241,42 @@
     "xboxGamePass50m": "Xbox Game Pass会在2025年达到5000万订阅者吗？",
     "zoraFlipPump": "ZORA会在120天内超越PUMP的市值吗？",
     "ethPump4500Dump3100": "ETH下一步：涨到4500还是跌到3100？"
+  },
+  "marketOptions": {
+    "yes": "是",
+    "no": "否",
+    "moreGreen": "更多上涨",
+    "moreRed": "更多下跌",
+    "gold": "黄金",
+    "eth": "以太坊",
+    "fear": "恐惧",
+    "greed": "贪婪",
+    "fury": "富里",
+    "usyk": "乌西克"
+  },
+  "carouselSubtitles": {
+    "gta6": "会在2025年发布吗？",
+    "lolWorlds": "T1会再次夺冠吗？",
+    "realMadrid": "会赢得欧冠吗？",
+    "barbie": "会打破票房记录吗？",
+    "zcashMonero": "哪个先翻盘？"
+  },
+  "stats": {
+    "volume": "交易量",
+    "participants": "参与者",
+    "timeLeft": "剩余时间",
+    "yesPercent": "支持率",
+    "predict": "预测",
+    "predictNow": "立即预测"
+  },
+  "searchFilters": {
+    "volume": "交易量",
+    "expiryTime": "到期时间",
+    "yesProbability": "支持概率",
+    "noProbability": "反对概率",
+    "min": "最小",
+    "max": "最大",
+    "start": "开始",
+    "end": "结束"
   }
 }
