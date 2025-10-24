@@ -11,7 +11,7 @@ import { useWeb3 } from "@/providers/Web3Provider";
 
 export default function MarketDetailPage() {
   const params = useParams();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { account, isConnected } = useWeb3();
   const [activeTab, setActiveTab] = useState<"buy" | "sell">("buy");
   const [amount, setAmount] = useState("");
@@ -163,14 +163,14 @@ export default function MarketDetailPage() {
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="bg-[#0A0A0A] rounded-lg p-4 border border-[#2A2A2A]">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[#00D4AA] font-semibold">{getTranslatedOptionText(option1.text, t)}</span>
+                    <span className="text-[#00D4AA] font-semibold">{getTranslatedOptionText(option1.text, t, i18n)}</span>
                     <span className="text-[#00D4AA] text-lg font-bold">{option1.percentage}%</span>
                   </div>
                   <div className="text-xs text-[#9CA3AF]">{option1.percentage}% {t("market.chance")}</div>
                 </div>
                 <div className="bg-[#0A0A0A] rounded-lg p-4 border border-[#2A2A2A]">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[#F97066] font-semibold">{getTranslatedOptionText(option2.text, t)}</span>
+                    <span className="text-[#F97066] font-semibold">{getTranslatedOptionText(option2.text, t, i18n)}</span>
                     <span className="text-[#F97066] text-lg font-bold">{option2.percentage}%</span>
                   </div>
                   <div className="text-xs text-[#9CA3AF]">{option2.percentage}% {t("market.chance")}</div>
@@ -296,7 +296,7 @@ export default function MarketDetailPage() {
                       : "bg-[#0A0A0A] text-white border border-[#2A2A2A] hover:border-[#00D4AA]"
                   }`}
                 >
-                  {getTranslatedOptionText(option1.text, t)}
+                  {getTranslatedOptionText(option1.text, t, i18n)}
                 </button>
                 <button
                   onClick={() => setSelectedOption(1)}
@@ -306,7 +306,7 @@ export default function MarketDetailPage() {
                       : "bg-[#0A0A0A] text-white border border-[#2A2A2A] hover:border-[#F97066]"
                   }`}
                 >
-                  {getTranslatedOptionText(option2.text, t)}
+                  {getTranslatedOptionText(option2.text, t, i18n)}
                 </button>
               </div>
 

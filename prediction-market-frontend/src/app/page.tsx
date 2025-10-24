@@ -12,7 +12,7 @@ import Link from "next/link";
 export default function Home() {
   const pathname = usePathname();
   const { setActiveTab } = useGlobalContext();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (pathname === "/") {
@@ -263,10 +263,10 @@ export default function Home() {
                   {/* Option Buttons */}
                   <div className="flex gap-2 h-12">
                      <button className="flex-1 px-4 py-3 bg-gradient-to-r from-[#F3BA2F] to-[#E8A202] hover:from-[#E8A202] hover:to-[#D4941A] border-2 border-[#F3BA2F] rounded-lg cursor-pointer transition-all duration-150 flex justify-center items-center shadow-lg hover:scale-105">
-                       <span className="text-white text-sm font-bold">{getTranslatedOptionText(market.options[0].text, t)}</span>
+                       <span className="text-white text-sm font-bold">{getTranslatedOptionText(market.options[0].text, t, i18n)}</span>
                      </button>
                      <button className="flex-1 px-4 py-3 rounded-lg cursor-pointer transition-all duration-150 flex justify-center items-center shadow-lg hover:scale-105" style={{background: 'linear-gradient(to right, #6b7280, #4b5563)', border: '2px solid #6b7280'}}>
-                       <span className="text-white text-sm font-bold">{getTranslatedOptionText(market.options[1].text, t)}</span>
+                       <span className="text-white text-sm font-bold">{getTranslatedOptionText(market.options[1].text, t, i18n)}</span>
                      </button>
                   </div>
                 </div>

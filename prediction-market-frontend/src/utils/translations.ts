@@ -17,19 +17,27 @@ export const getTranslatedMarketTitle = (market: Market, t: (key: string) => str
 };
 
 // Function to translate option text
-export const getTranslatedOptionText = (optionText: string, t: (key: string) => string) => {
-  const optionMap: Record<string, string> = {
-    'Yes': t('common.yes'),
-    'No': t('common.no'),
-    'More Green': '更多绿色',
-    'More Red': '更多红色',
-    'Gold': '黄金',
-    'ETH': 'ETH',
-    'Fear': '恐惧',
-    'Greed': '贪婪',
-    'Fury': '富里',
-    'Usyk': '乌西克',
+export const getTranslatedOptionText = (optionText: string, t: (key: string) => string, i18n?: any) => {
+  // Get current language
+  const currentLang = i18n?.language || 'en';
+  
+  const optionMap: Record<string, Record<string, string>> = {
+    'Yes': { en: 'Yes', zh: '是' },
+    'No': { en: 'No', zh: '否' },
+    'More Green': { en: 'More Green', zh: '更多绿色' },
+    'More Red': { en: 'More Red', zh: '更多红色' },
+    'Gold': { en: 'Gold', zh: '黄金' },
+    'ETH': { en: 'ETH', zh: 'ETH' },
+    'Fear': { en: 'Fear', zh: '恐惧' },
+    'Greed': { en: 'Greed', zh: '贪婪' },
+    'Fury': { en: 'Fury', zh: '富里' },
+    'Usyk': { en: 'Usyk', zh: '乌西克' },
   };
   
-  return optionMap[optionText] || optionText;
+  const translations = optionMap[optionText];
+  if (translations) {
+    return translations[currentLang] || translations.en || optionText;
+  }
+  
+  return optionText;
 };
